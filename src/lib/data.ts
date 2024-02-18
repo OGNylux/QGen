@@ -1,4 +1,5 @@
 import type { list } from "postcss";
+import { QuestStore } from "./store";
 
 interface Item {
     name: string;
@@ -36,16 +37,4 @@ class QuestItem {
     }
 }
 
-let EmptyQuest = new QuestItem({
-    name: "",
-    description: "",
-    dialogue: [],
-    progressDialogue: [],
-    finishedDialogue: [],
-    itemConditions: [],
-    tagConditions: [],
-    itemRewards: [],
-    tagRewards: []
-});
-
-export { QuestItem, EmptyQuest };
+export { QuestItem };

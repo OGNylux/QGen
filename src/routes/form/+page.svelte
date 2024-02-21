@@ -33,7 +33,7 @@
         {#each $QuestStore as quest, i }
             <Tabs.Trigger value={String(i)}>
                 <div class="flex items-center rounded-lg p-1 gap-1 bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50">
-                    <div class="flex justify-center items-center bg-neutral-700 w-7 h-7 rounded-full">
+                    <div class="flex justify-center items-center bg-neutral-700/50 w-7 h-7 rounded-full">
                         <span class="text font-bold">Q{i}</span>
                     </div>
                     <span class="text-lg font-bold">{quest.name || "Custom Quest"}</span>
@@ -41,7 +41,7 @@
             </Tabs.Trigger>
         {/each}
         <button on:click={() => newQuest()} 
-            class="flex rounded-lg self-center justify-center items-center w-24 p-0.5 m-1 
+            class="flex rounded-lg self-center justify-center items-center w-24 p-0.5 m-1 opacity-20 hover:opacity-100 add-button-hover
             bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50">
             <Plus size={20} strokeWidth={3}/>
         </button>
@@ -54,4 +54,11 @@
           {/each}
       </div>
     </Tabs.Root>
-  </div>
+</div>
+
+
+<style>
+    .add-button-hover {
+        transition: opacity 0.25s;
+    }
+</style>

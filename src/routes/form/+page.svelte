@@ -15,7 +15,7 @@
         QuestStore.add(new QuestItem({
         name: "",
         description: "",
-        dialogue: [],
+        dialogue: [""],
         progressDialogue: [],
         finishedDialogue: [],
         itemConditions: [],
@@ -27,21 +27,28 @@
 
 </script>
 
-<div>
-    <Tabs.Root value="0" class="flex flex-row h-screen relative">
-      <Tabs.List class="flex flex-col items-center p-1.5 w-16 m-1 gap-2 rounded-2xl bg-slate-200">
-        {#each $QuestStore as _, i }
-            <Tabs.Trigger value={String(i)} class="flex justify-center items-center w-12 h-12 rounded-full bg-slate-100">
-                <span class="text-2xl font-bold pb-1">Q{i}</span>
+<div class="flex h-screen">
+    <Tabs.Root value="0" class="flex flex-row w-full">
+      <Tabs.List class="flex flex-col p-2 w-64 h-2/3 gap-1 rounded-lg bg-neutral-800 overflow-y-auto my-auto">
+        {#each $QuestStore as quest, i }
+            <Tabs.Trigger value={String(i)}>
+                <div class="flex items-center rounded-lg p-1 gap-1 bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50">
+                    <div class="flex justify-center items-center bg-neutral-700 w-7 h-7 rounded-full">
+                        <span class="text font-bold">Q{i}</span>
+                    </div>
+                    <span class="text-lg font-bold">{quest.name || "Custom Quest"}</span>
+                </div>
             </Tabs.Trigger>
         {/each}
-        <button on:click={() => newQuest()} class="flex rounded-full justify-center items-center p-2 m-1 bg-slate-100 text-slate-700">
-            <Plus size={36}/>
+        <button on:click={() => newQuest()} 
+            class="flex rounded-lg self-center justify-center items-center w-24 p-0.5 m-1 
+            bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50">
+            <Plus size={20} strokeWidth={3}/>
         </button>
       </Tabs.List>
-      <div class="">
+      <div class="w-full">
           {#each $QuestStore as item, i }
-            <Tabs.Content value={String(i)} class="pt-3">
+            <Tabs.Content value={String(i)} class="pt-20 px-4">
                 <Form quest={item} />
             </Tabs.Content>
           {/each}

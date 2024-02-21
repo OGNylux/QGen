@@ -6,7 +6,7 @@ export function reset() {
     QuestStore.add(new QuestItem({
         name: "",
         description: "",
-        dialogue: [],
+        dialogue: [""],
         progressDialogue: [],
         finishedDialogue: [],
         itemConditions: [],

@@ -7,11 +7,11 @@ export function reset() {
         name: "",
         description: "",
         dialogue: [""],
-        progressDialogue: [],
-        finishedDialogue: [],
-        itemConditions: [],
-        tagConditions: [],
-        itemRewards: [],
-        tagRewards: []
+        progressDialogue: [""],
+        finishedDialogue: [""],
+        itemConditions: [{ id: "", amount: 0}],
+        tagConditions: [""],
+        itemRewards: [{ id: "", amount: 0}],
+        tagRewards: [""]
     }));
 }

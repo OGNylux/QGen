@@ -7,9 +7,9 @@ interface Item {
     dialogue: string[];
     progressDialogue: string[];
     finishedDialogue: string[];
-    itemConditions: Map<string, number>[];
+    itemConditions: MinecraftItem[];
     tagConditions: string[];
-    itemRewards: Map<string, number>[];
+    itemRewards: MinecraftItem[];
     tagRewards: string[];
 }
 
@@ -19,9 +19,9 @@ class QuestItem {
     dialogue: string[];
     progressDialogue: string[];
     finishedDialogue: string[];
-    itemConditions: Map<string, number>[];
+    itemConditions: MinecraftItem[];
     tagConditions: string[];
-    itemRewards: Map<string, number>[];
+    itemRewards: MinecraftItem[];
     tagRewards: string[];
 
     constructor(item: Item) {
@@ -37,4 +37,9 @@ class QuestItem {
     }
 }
 
-export { QuestItem };
+class MinecraftItem {
+    id: string = "";
+    amount: number = 0;
+}
+
+export { QuestItem, MinecraftItem };

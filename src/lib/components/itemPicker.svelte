@@ -6,7 +6,7 @@
 
    
     const fruits = [
-      { value: "mango", label: "Mango" },
+      { value: "minecraft:apple", label: "Apple" },
       { value: "watermelon", label: "Watermelon" },
       { value: "apple", label: "Apple" },
       { value: "pineapple", label: "Pineapple" },
@@ -25,20 +25,19 @@
     $: filteredFruits = inputValue
       ? fruits.filter((fruit) => fruit.value.includes(inputValue.toLowerCase()))
       : fruits;
-  </script>
-   
-<Combobox.Root items={filteredFruits} bind:inputValue>
-    <div class="flex relative w-[296px]">
-      <Combobox.Input
-        class="inline-flex h-input w-[296px] truncate bg-neutral-800 rounded-md py-1.5 pl-3 pr-3 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+</script>
+
+<div class="flex flex-row w-full">
+  <Combobox.Root items={filteredFruits} bind:inputValue>
+    <div class="flex relative w-full">
+      <Combobox.Input class="inline-flex h-input w-full truncate bg-neutral-800 rounded-md py-1.5 pl-3 pr-3 focus:outline-none focus:ring-2 focus:ring-emerald-600"
         placeholder="Select a fruit"
         aria-label="Select a fruit"
       />
       <ChevronsUpDown class="absolute end-3 top-1/2 size-6 -translate-y-1/2 text-neutral-600"/>
     </div>
    
-    <Combobox.Content
-      class="w-full max-h-96 overflow-y-auto rounded-xl border-2 border-emerald-600 bg-neutral-800 px-1 py-3 shadow-popover text-white"
+    <Combobox.Content class="w-full max-h-96 overflow-y-auto rounded-xl bg-neutral-800 px-1 py-3 shadow-popover text-white"
       transition={flyAndScale}
       sideOffset={8}
     >
@@ -49,9 +48,7 @@
           label={fruit.label}
         >
           {fruit.label}
-          <Combobox.ItemIndicator class="ml-auto" asChild={false}>
-            <Check />
-          </Combobox.ItemIndicator>
+          <Combobox.ItemIndicator class="ml-auto" asChild={false}> <Check /> </Combobox.ItemIndicator>
         </Combobox.Item>
       {:else}
         <span class="block px-5">
@@ -59,4 +56,7 @@
         </span>
       {/each}
     </Combobox.Content>
-</Combobox.Root>
+  </Combobox.Root>
+  <input type="number" placeholder="Amount" class="block bg-neutral-800 w-24 rounded-md ml-2 py-1.5 pl-3 pr-3 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+</div>
+

@@ -58,7 +58,7 @@
       {/each}
     </Combobox.Content>
   </Combobox.Root>
-  <input type="number" placeholder="Amount" bind:value={item.amount}
+  <input type="number" placeholder="Amount" min="1" bind:value={item.amount}
     class="block bg-neutral-800 w-24 rounded-md ml-2 py-1.5 pl-3 pr-3 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
 </div>
 

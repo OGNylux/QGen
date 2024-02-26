@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { QuestItem } from "$lib/data";
-    import { Plus } from "lucide-svelte";
+    import { MinusCircle, Plus } from "lucide-svelte";
     import ItemPicker from "./itemPicker.svelte";
     import { QuestStore } from "$lib/store";
 
@@ -13,13 +13,24 @@
         arr.push({id: "", amount: 0})
         arr = [...arr];
     }
+
+    function removeFromArray(index: number) {
+        if(arr.length > 1) arr.splice(index, 1);
+        else arr[0] = {id: "", amount: 0};
+    }
 </script>
 
 
 
 <div class="flex flex-col w-full h-36 place-items-center overflow-y-auto rounded-xl border-2 border-neutral-700 p-2 shadow-popover">
-    {#each arr as item}
-        <ItemPicker {item}/>
+    {#each arr as item, i}
+        <div class="w-full z-10 relative group">
+            <ItemPicker {item}/>
+            <button on:click={() => {removeFromArray(i); arr = [...arr]}}
+                class="absolute -right-1 -top-1 pb-4 opacity-0 group-hover:opacity-100 add-button-hover text-red-700">
+                <MinusCircle size={20} strokeWidth={3} />
+            </button>
+        </div>
     {/each}
     <button on:click={() => newDialogue()} 
         class="flex rounded-lg justify-self-center justify-center items-center w-24 p-0.5 mt-1 opacity-20 hover:opacity-100 add-button-hover

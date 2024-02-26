@@ -12,9 +12,9 @@
         dialogue: [""],
         progressDialogue: [""],
         finishedDialogue: [""],
-        itemConditions: [{id: "", amount: 0}],
+        itemConditions: [{id: "", amount: 1}],
         tagConditions: [""],
-        itemRewards: [{id: "", amount: 0}],
+        itemRewards: [{id: "", amount: 1}],
         tagRewards: [""]
         }));
 

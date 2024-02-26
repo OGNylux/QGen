@@ -2,7 +2,6 @@
     import type { QuestItem } from "$lib/data";
     import { Separator } from "bits-ui";
     import MultiTextarea from "./multiTextarea.svelte";
-    import ItemPicker from "./itemPicker.svelte";
     import MultiInput from "./multiInput.svelte";
     import MultiItemPicker from "./multiItemPicker.svelte";
 

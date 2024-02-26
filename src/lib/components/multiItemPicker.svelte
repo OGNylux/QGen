@@ -2,7 +2,6 @@
     import type { QuestItem } from "$lib/data";
     import { MinusCircle, Plus } from "lucide-svelte";
     import ItemPicker from "./itemPicker.svelte";
-    import { QuestStore } from "$lib/store";
 
     export let quest : QuestItem;
     export let mode : string;
@@ -16,7 +15,7 @@
 
     function removeFromArray(index: number) {
         if(arr.length > 1) arr.splice(index, 1);
-        else arr[0] = {id: "", amount: 0};
+        else arr[0] = {id: "", amount: 1};
     }
 </script>
 

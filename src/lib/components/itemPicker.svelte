@@ -6,30 +6,22 @@
 
     export let item: MinecraftItem
    
-    const fruits = [
-      { value: "minecraft:apple", label: "Apple" },
-      { value: "watermelon", label: "Watermelon" },
-      { value: "apple", label: "Apple" },
-      { value: "pineapple", label: "Pineapple" },
-      { value: "orange", label: "Orange" },
-      { value: "orange1", label: "Orange" },
-      { value: "orange2", label: "Orange" },
-      { value: "orange3", label: "Orange" },
-      { value: "orange4", label: "Orange" },
-      { value: "orange5", label: "Orange" },
-      { value: "orange6", label: "Orange" },
-      { value: "orange7", label: "Orange" }
+    const items = [
+      { value: "minecraft:apple", data: 0, label: "Apple" }
     ];
    
     let inputValue = "";
    
-    $: filteredFruits = inputValue
-      ? fruits.filter((fruit) => fruit.value.includes(inputValue.toLowerCase()))
-      : fruits;
+    $: filteredItems = inputValue
+      ? items.filter((item) => item.value.includes(inputValue.toLowerCase()))
+      : items;
+
+    $: item.id = items.find(item => item.label === inputValue)?.value || inputValue;
+    $: item.data = items.find(item => item.label === inputValue)?.data || 0;
 </script>
 
 <div class="flex flex-row w-full mb-1">
-  <Combobox.Root items={filteredFruits} bind:inputValue={item.id}>
+  <Combobox.Root items={filteredItems} bind:inputValue>
     <div class="flex relative w-full">
       <Combobox.Input class="inline-flex h-input w-full truncate bg-neutral-800 rounded-md py-1.5 pl-3 pr-3 focus:outline-none focus:ring-2 focus:ring-emerald-600"
         placeholder="Select a fruit"
@@ -42,13 +34,13 @@
       transition={flyAndScale}
       sideOffset={8}
     >
-      {#each filteredFruits as fruit (fruit.value)}
+      {#each filteredItems as item (item.value)}
         <Combobox.Item
           class="flex h-10 w-full select-none items-center rounded-md py-3 pl-5 pr-1.5 transition-all duration-75 data-[highlighted]:bg-neutral-700/50"
-          value={fruit.value}
-          label={fruit.label}
+          value={item.value}
+          label={item.label}
         >
-          {fruit.label}
+          {item.label}
           <Combobox.ItemIndicator class="ml-auto" asChild={false}> <Check /> </Combobox.ItemIndicator>
         </Combobox.Item>
       {:else}

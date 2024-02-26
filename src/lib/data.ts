@@ -49,6 +49,7 @@ class QuestItem {
 
 class MinecraftItem {
     id: string = "";
+    data?: number = 0;
     amount: number = 0;
 }
 

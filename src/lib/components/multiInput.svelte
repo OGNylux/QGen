@@ -8,20 +8,19 @@
     let arr = mode == "condition" ? quest.tagConditions : quest.tagRewards;
 
     function newDialogue() {
-        arr = [...arr, ""];
+        arr.push("");
+        arr = [...arr];
     }
 </script>
 
-
-
-<div class="grid w-full max-h-48 place-items-center overflow-y-auto rounded-xl border-2 border-neutral-700 p-2 shadow-popover">
-    {#each arr as _, i}
+<div class="flex flex-col w-full h-36 place-items-center overflow-y-auto rounded-xl border-2 border-neutral-700 p-2 shadow-popover">
+    {#each arr as string, i}
         <input placeholder="Enter the {i+1}. Tag"
-            class="block bg-neutral-800 w-full rounded-md py-1.5 pl-3 pr-3 focus:outline-none focus:ring-2 focus:ring-emerald-600" 
-            type="text" bind:value={arr[i]} />
+            class="block bg-neutral-800 w-full rounded-md py-1.5 pl-3 pr-3 mb-1 focus:outline-none focus:ring-2 focus:ring-emerald-600" 
+            type="text" bind:value={string} />
     {/each}
     <button on:click={() => newDialogue()} 
-        class="flex rounded-lg justify-self-center justify-center items-center w-24 p-0.5 m-1 opacity-20 hover:opacity-100 add-button-hover
+        class="flex rounded-lg justify-self-center justify-center items-center w-24 p-0.5 mt-1 opacity-20 hover:opacity-100 add-button-hover
         bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50">
         <Plus size={20} strokeWidth={3}/>
     </button>

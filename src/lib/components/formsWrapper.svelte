@@ -17,7 +17,10 @@
         itemRewards: [{id: "", amount: 0}],
         tagRewards: [""]
         }));
+
+        console.log($QuestStore)
     }
+    
 </script>
 
 <Tabs.Root value="0" class="flex flex-row w-full h-full">
@@ -40,7 +43,7 @@
     </Tabs.List>
     <div class="w-full">
         {#each $QuestStore as item, i }
-          <Tabs.Content value={String(i)} class="pt-20 px-4">
+          <Tabs.Content value={String(i)} class="pt-10 px-4">
               <Form quest={item} />
           </Tabs.Content>
         {/each}

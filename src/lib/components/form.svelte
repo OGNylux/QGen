@@ -10,8 +10,6 @@
 </script>
 
 <div class="flex flex-col w-full gap-2">
-    <h1 class="text-4xl font-bold">This is the form page</h1>
-    <Separator.Root orientation="horizontal" class="w-3/4 h-1 rounded-xl bg-emerald-600" />
     <div class="flex flex-row w-full gap-8">
         <div class="flex flex-col gap-4 w-1/3">
             <div>
@@ -47,8 +45,26 @@
         </div>
         
         <div class="flex flex-col w-1/2">
-            <span class="text-2xl">Quest Start Dialogue</span>
-            <MultiTextarea {quest} mode="start" />
+            <span class="text-2xl">Quest in Progress Dialogue</span>
+            <MultiTextarea {quest} mode="progress" />
+        </div>
+    </div>
+    <Separator.Root orientation="horizontal" class="w-full mt-3 h-1 rounded-xl bg-emerald-600" />
+    <div class="flex flex-row w-full gap-8">
+        <div class="flex flex-col gap-4 w-1/3">
+            <div>
+                <span class="text-2xl">Quest Reward Items</span>
+                <MultiItemPicker {quest} mode="reward" />
+            </div>
+            <div>
+                <span class="text-2xl">Quest Reward Tags</span>
+                <MultiInput {quest} mode="reward" />
+            </div>
+        </div>
+        
+        <div class="flex flex-col w-1/2">
+            <span class="text-2xl">Quest Finished Dialogue</span>
+            <MultiTextarea {quest} mode="end" />
         </div>
     </div>
 </div>

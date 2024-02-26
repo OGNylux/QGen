@@ -2,8 +2,9 @@
     import { Combobox } from "bits-ui";
     import { flyAndScale } from "$lib/transitions";
     import { Check, ChevronsUpDown } from "lucide-svelte";
+    import type { MinecraftItem } from "$lib/data";
 
-
+    export let item: MinecraftItem
    
     const fruits = [
       { value: "minecraft:apple", label: "Apple" },
@@ -27,8 +28,8 @@
       : fruits;
 </script>
 
-<div class="flex flex-row w-full">
-  <Combobox.Root items={filteredFruits} bind:inputValue>
+<div class="flex flex-row w-full mb-1">
+  <Combobox.Root items={filteredFruits} bind:inputValue={item.id}>
     <div class="flex relative w-full">
       <Combobox.Input class="inline-flex h-input w-full truncate bg-neutral-800 rounded-md py-1.5 pl-3 pr-3 focus:outline-none focus:ring-2 focus:ring-emerald-600"
         placeholder="Select a fruit"
@@ -57,6 +58,7 @@
       {/each}
     </Combobox.Content>
   </Combobox.Root>
-  <input type="number" placeholder="Amount" class="block bg-neutral-800 w-24 rounded-md ml-2 py-1.5 pl-3 pr-3 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
+  <input type="number" placeholder="Amount" bind:value={item.amount}
+    class="block bg-neutral-800 w-24 rounded-md ml-2 py-1.5 pl-3 pr-3 focus:outline-none focus:ring-2 focus:ring-emerald-600" />
 </div>
 

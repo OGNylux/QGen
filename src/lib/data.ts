@@ -35,6 +35,16 @@ class QuestItem {
         this.itemRewards = item.itemRewards;
         this.tagRewards = item.tagRewards;
     }
+
+    setDialogue(value: string, index: number) {
+        this.dialogue[index] = value
+        QuestStore.update(this)
+    }
+
+    appendConditionItems(value: MinecraftItem) {
+        this.itemConditions.push(value)
+        QuestStore.update(this)
+    }
 }
 
 class MinecraftItem {

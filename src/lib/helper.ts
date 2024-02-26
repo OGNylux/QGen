@@ -15,3 +15,18 @@ export function reset() {
         tagRewards: [""]
     }));
 }
+
+let result = null
+	
+export async function doPost () {
+	const res = await fetch('http://localhost:80/test2', {
+		method: 'POST',
+		body: JSON.stringify({
+			quests: QuestStore.get()
+		})
+	})
+	
+	const json = await res.json()
+	result = JSON.stringify(json)
+    console.log(result)
+}

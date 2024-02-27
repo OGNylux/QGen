@@ -35,18 +35,12 @@ class QuestItem {
         this.itemRewards = item.itemRewards;
         this.tagRewards = item.tagRewards;
     }
-
-    setDialogue(value: string, index: number) {
-        this.dialogue[index] = value
-        QuestStore.update(this)
-    }
-
-    appendConditionItems(value: MinecraftItem) {
-        this.itemConditions.push(value)
-        QuestStore.update(this)
-    }
 }
 
+class NPC {
+    namespace: string = "";
+    name: string = "";
+}
 class MinecraftItem {
     id: string = "";
     data?: number = 0;

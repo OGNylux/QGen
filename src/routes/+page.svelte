@@ -1,32 +1,24 @@
-<script lang="js">
-    // @ts-ignore
-    let rand;
-    async function getRand() {
-      const response = await fetch("http://localhost:80/rand")
+<script lang="ts">
+  import { WavyBackground } from "$lib/components/ui/WavyBackground/index";
+  import NavBar from "$lib/components/navBar.svelte";
+    import { ChevronDown } from "lucide-svelte";
+</script>
 
-      const random = await response.json();
-      const test = random.number
-      rand = test
-      console.log(rand)
-    }
 
-    let foo = 0
-	  let bar = 1
-	  let result = null
+<div class="scroll-smooth" id="top">
+	<NavBar />
+	<section class="h-screen relative">
 
-    async function test2() {
-      const res = await fetch('http://localhost:80/test', {
-			method: 'POST',
-			body: JSON.stringify({
-				foo,
-				bar
-			  })
-		  })
-		
-		  const json = await res.json()
-		  result = JSON.stringify(json)
-      
-    }
-  </script>
-  <h1>Your number is {result}!</h1>
-  <button on:click={() => test2()}>Get a random number</button>
+	<WavyBackground className="max-w-4xl mx-auto pb-40">
+		<p class="inter-var text-center text-2xl font-bold text-white md:text-4xl lg:text-7xl">
+			QGen
+		</p>
+		<p class="inter-var mt-4 text-center text-base font-normal text-white md:text-lg">
+			Minecraft Bedrock Quest Generator
+		</p>
+	</WavyBackground>
+	<a href="/#functions" class="absolute bottom-20 flex justify-center w-full">
+		<ChevronDown class="animate-bounce mb-5 cursor-pointer" />
+	</a>
+	</section>
+</div>

@@ -26,6 +26,10 @@
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.1",
 		"bits-ui": "^0.18.1",
-		"lucide-svelte": "^0.331.0"
+		"clsx": "^2.1.0",
+		"framer-motion": "^11.0.6",
+		"lucide-svelte": "^0.331.0",
+		"simplex-noise": "^4.0.1",
+		"tailwind-merge": "^2.2.1"
 	}
 }

@@ -2,20 +2,24 @@
     import { cn } from "$lib/utils/cn";
     import { createNoise3D } from "simplex-noise";
     import { onMount } from "svelte";
-    import { writable } from "svelte/store";
     export let className = void 0;
     export let containerClassName = void 0;
     export let colors = void 0;
     export let waveWidth = void 0;
-    export let backgroundFill = void 0;
     export let blur = 10;
     export let speed = "fast";
     
-    //@ts-ignore
     const noise = createNoise3D();
-    let w, h, nt: number = 0;
-    let i, x, ctx, canvas: any;
+    let w, h, i, x: number;
+    let nt: number = 0;
+    let canvas: any;
+    let ctx: CanvasRenderingContext2D;
     let canvasRef: any;
+    let animationId: number;
+
+                             //emerald 600  emerald 500  teal 600   teal 500  cyan 500
+    const waveColors = colors ?? ["#059669", "#10b981", "#0d9488", "#14b8a6", "#06b6d4"];
+
     const getSpeed = () => {
       switch (speed) {
         case "slow":
@@ -30,52 +34,61 @@
     const init = () => {
       canvas = canvasRef;
       ctx = canvas.getContext("2d");
-      //console.log("ctx", ctx);
-      w = ctx.canvas.width = window.innerWidth;
-      h = ctx.canvas.height = window.innerHeight;
+      ctx.canvas.width = window.innerWidth;
+      ctx.canvas.height = window.innerHeight;
+      
+      w = ctx.canvas.width;
+      h = ctx.canvas.height;
       ctx.filter = `blur(${blur}px)`;
       nt = 0;
+
       window.onresize = function() {
         w = ctx.canvas.width = window.innerWidth;
         h = ctx.canvas.height = window.innerHeight;
         ctx.filter = `blur(${blur}px)`;
       };
+
       render();
-    };                       //emerald 600  emerald 500  teal 600   teal 500  cyan 500
-    const waveColors = colors ?? ["#059669", "#10b981", "#0d9488", "#14b8a6", "#06b6d4"];
-    const drawWave = (n) => {
+    };     
+
+    const drawWave = (n: number) => {
       nt += getSpeed();
+
       for (i = 0; i < n; i++) {
         ctx.beginPath();
         ctx.lineWidth = waveWidth || 50;
         ctx.strokeStyle = waveColors[i % waveColors.length];
+
         for (x = 0; x < w; x += 5) {
           var y = noise(x / 800, 0.3 * i, nt) * 100;
           ctx.lineTo(x, y + h * 0.5);
         }
+
         ctx.stroke();
         ctx.closePath();
       }
     };
-    let animationId;
+  
     const render = () => {
-      ctx.fillStyle = backgroundFill || "#171717";
+      ctx.fillStyle = "#171717";
       //ctx.globalAlpha = waveOpacity || 0.5;
       ctx.fillRect(0, 0, w, h);
       drawWave(5);
       animationId = requestAnimationFrame(render);
     };
+
     onMount(() => {
       init();
       return () => {
         cancelAnimationFrame(animationId);
       };
     });
+
     </script>
     
-    <div class={cn('flex h-screen flex-col items-center justify-center', containerClassName)}>
-        <canvas class="absolute inset-0 z-0" bind:this={canvasRef} id="canvas"></canvas>
-        <div class={cn('relative z-10', className)} {...$$props}>
-            <slot />
-        </div>
-    </div>
+<div class={cn('flex h-screen flex-col items-center justify-center', containerClassName)}>
+  <canvas class="absolute inset-0 z-0" bind:this={canvasRef} id="canvas" />
+  <div class={cn('relative z-10', className)} {...$$props}>
+    <slot />
+  </div>
+</div>

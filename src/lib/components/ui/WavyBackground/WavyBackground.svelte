@@ -2,6 +2,7 @@
     import { cn } from "$lib/utils/cn";
     import { createNoise3D } from "simplex-noise";
     import { onMount } from "svelte";
+    
     export let className = void 0;
     export let containerClassName = void 0;
     export let colors = void 0;
@@ -74,14 +75,10 @@
       //ctx.globalAlpha = waveOpacity || 0.5;
       ctx.fillRect(0, 0, w, h);
       drawWave(5);
-      animationId = requestAnimationFrame(render);
     };
 
     onMount(() => {
       init();
-      return () => {
-        cancelAnimationFrame(animationId);
-      };
     });
 
     </script>

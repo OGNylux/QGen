@@ -6,7 +6,9 @@
 	<div class="bg-neutral-800 flex justify-between p-3 rounded-md w-full lg:w-4/5 xl:w-[70%]">
 		<div class="w-full flex items-center justify-center">
 			<span>Home</span>
-			<Logo />
+			<div class="flex grow justify-center">
+				<Logo />
+			</div>
 			<span>Documentation</span>
 			<span>Start</span>
 		<div />

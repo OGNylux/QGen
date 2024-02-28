@@ -79,11 +79,19 @@
 
     onMount(() => {
       init();
+
+		  window.addEventListener('resize', resize);
     });
+
+    const resize = () => {
+      cancelAnimationFrame(animationId);
+      animationId = requestAnimationFrame(render);
+      console.log("resize");
+    };
 
     </script>
     
-<div class={cn('flex h-screen flex-col items-center justify-center', containerClassName)}>
+<div class={cn('flex h-screen flex-col items-center justify-center', containerClassName)} on:resize={() => resize()}>
   <canvas class="absolute inset-0 z-0" bind:this={canvasRef} id="canvas" />
   <div class={cn('relative z-10', className)} {...$$props}>
     <slot />

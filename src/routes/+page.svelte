@@ -69,10 +69,11 @@
 	<section class="grid place-items-center mb-64" id="about">
 		<div class="flex flex-col w-1/2 items-center bg-neutral-800 p-4 rounded-md text-center">
 			<h3 class="text-3xl font-bold mb-3">About</h3>
-			<p class="w-1/2">
+			<p class="w-2/3">
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
 				At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+				<br />
 				At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
 				Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   

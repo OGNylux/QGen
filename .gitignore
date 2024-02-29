@@ -11,3 +11,4 @@ vite.config.ts.timestamp-*
 /backend/.idea
 /backend/venv
 /backend/__pycache__
+/.idea

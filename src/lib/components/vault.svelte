@@ -20,7 +20,6 @@
       return res;
     });
     paginatedData = getPaginatedData();
-    console.log(paginatedData);
   });
 
   function getPaginatedData() {
@@ -31,7 +30,6 @@
 
   beforeUpdate(() => {
     paginatedData = getPaginatedData();
-    console.log("test");
   });
 
   async function updateData(quest: QuestLine) {
@@ -62,17 +60,18 @@
   }
 </script>
 
-<Table.Root>
-  <Table.Header>
-    <Table.Row class="hover:bg-neutral-900">
-      <Table.Head class="w-[150px]"></Table.Head>
-      <Table.Head>NPC</Table.Head>
-      <Table.Head>Quests</Table.Head>
-      <Table.Head class="text-right">Creation Date</Table.Head>
-    </Table.Row>
-  </Table.Header>
-  <Table.Body>
-    {#if paginatedData}
+{#if paginatedData}
+<div class="min-h-[70vh]">
+  <Table.Root>
+    <Table.Header>
+      <Table.Row class="hover:bg-neutral-900">
+        <Table.Head class="w-[150px]"></Table.Head>
+        <Table.Head>NPC</Table.Head>
+        <Table.Head>Quests</Table.Head>
+        <Table.Head class="text-right">Creation Date</Table.Head>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
       {#each paginatedData as quest }
         <Table.Row class="hover:bg-neutral-900">
           <Table.Cell class="flex flex-row font-medium">
@@ -88,11 +87,10 @@
           <Table.Cell class="text-right">{formatDate(new Date(quest.date))}</Table.Cell>
         </Table.Row>
       {/each}
-    {:else}
-       ...waiting
-    {/if}
-  </Table.Body>
-</Table.Root>
-{#if data}
-  <Pagination bind:currentPage={test} count={data.length} perPage={itemsPerPage} />
+    </Table.Body>
+  </Table.Root>
+</div>
+<Pagination bind:currentPage={test} count={data.length} perPage={itemsPerPage} />
+{:else}
+   ...waiting
 {/if}

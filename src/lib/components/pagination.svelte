@@ -6,8 +6,6 @@
     export let count: number;
     export let perPage: number;
 
-    $: console.log(currentPage);
-
   </script>
    
   <Pagination.Root count={count} perPage={perPage} let:pages let:range bind:page={currentPage}>

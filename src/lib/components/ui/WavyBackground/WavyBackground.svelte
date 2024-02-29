@@ -26,7 +26,7 @@
         case "slow":
           return 1e-3;
         case "fast":
-          return 4e-3;
+          return 2e-3;
         default:
           return 1e-3;
       }
@@ -86,7 +86,6 @@
     const resize = () => {
       cancelAnimationFrame(animationId);
       animationId = requestAnimationFrame(render);
-      console.log("resize");
     };
 
     </script>

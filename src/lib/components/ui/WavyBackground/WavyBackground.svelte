@@ -26,7 +26,7 @@
         case "slow":
           return 1e-3;
         case "fast":
-          return 2e-3;
+          return 4e-3;
         default:
           return 1e-3;
       }

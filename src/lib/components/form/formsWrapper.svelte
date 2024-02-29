@@ -2,27 +2,11 @@
     import { QuestStore } from "$lib/store";
     import { Tabs } from "bits-ui";
     import { Plus } from "lucide-svelte";
-    import Form from "$lib/components/form.svelte";
-    import { QuestItem } from "$lib/data";
-    import { doPost } from "$lib/helper";
-
-    function newQuest() {
-        QuestStore.add(new QuestItem({
-        name: "",
-        description: "",
-        dialogue: [""],
-        progressDialogue: [""],
-        finishedDialogue: [""],
-        itemConditions: [{id: "", amount: 1}],
-        tagConditions: [""],
-        itemRewards: [{id: "", amount: 1}],
-        tagRewards: [""]
-        }));
-    }
-    
+    import Form from "$lib/components/form/form.svelte";
+    import { postQuestToGenerator, newQuest, getQuestsDB, postQuestDB } from "$lib/helper";
 </script>
 
-<Tabs.Root value="0" class="flex flex-row w-full h-full">
+<Tabs.Root value="0" class="flex flex-row w-full h-full mb-20">
     <Tabs.List class="flex flex-col w-64 h-[512px] rounded-lg bg-neutral-800 overflow-y-auto mt-32">
         <div class="flex flex-col grow p-2 gap-1">
             {#each $QuestStore as quest, i }
@@ -41,7 +25,7 @@
                 <Plus size={20} strokeWidth={3}/>
             </button>
         </div>
-      <button on:click={() => doPost()} 
+      <button on:click={() => postQuestDB()} 
           class="flex rounded-lg self-center justify-center items-center w-24 p-0.5 m-1 sticky z-50 bottom-1
           bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50">
           <Plus size={20} strokeWidth={3}/>
@@ -54,10 +38,3 @@
         {/each}
     </div>
 </Tabs.Root>
-
-  
-<style>
-    .add-button-hover {
-        transition: opacity 0.25s;
-    }
-</style>

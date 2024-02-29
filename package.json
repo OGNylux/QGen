@@ -30,6 +30,7 @@
 		"framer-motion": "^11.0.6",
 		"lucide-svelte": "^0.331.0",
 		"simplex-noise": "^4.0.1",
-		"tailwind-merge": "^2.2.1"
+		"tailwind-merge": "^2.2.1",
+		"tailwind-variants": "^0.2.0"
 	}
 }

@@ -39,12 +39,26 @@ class QuestItem {
 
 class NPC {
     namespace: string = "";
-    name: string = "";
+    identifier: string = "";
 }
+
+class QuestLine {
+    _id?: any;
+    npc: NPC;
+    quests: QuestItem[] = [];
+    date: Date = new Date();
+
+    constructor(npc: NPC, quests: QuestItem[]) {
+        this.npc = npc;
+        this.quests = quests;
+    }
+
+}
+
 class MinecraftItem {
     id: string = "";
     data?: number = 0;
     amount: number = 0;
 }
 
-export { QuestItem, MinecraftItem };
+export { QuestItem, QuestLine, MinecraftItem };

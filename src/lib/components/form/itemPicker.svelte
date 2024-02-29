@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Combobox } from "bits-ui";
-    import { flyAndScale } from "$lib/transitions";
+    import { flyAndScale } from "$lib/utils/transitions";
     import { Check, ChevronsUpDown } from "lucide-svelte";
     import type { MinecraftItem } from "$lib/data";
 

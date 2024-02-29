@@ -4,14 +4,15 @@
     import NavBar from "$lib/components/navBar.svelte";
     import FormsWrapper from "$lib/components/form/formsWrapper.svelte";
     import Footer from "$lib/components/footer.svelte";
+    import Vault from "$lib/components/vault.svelte";
+    import EditorWrapper from "$lib/components/editorWrapper.svelte";
 
     onMount(() => {
-        reset();
     });
 </script>
 
-<div class="h-full">
+<div class="">
     <NavBar />
-    <FormsWrapper />
+    <EditorWrapper />
     <Footer/>
 </div>

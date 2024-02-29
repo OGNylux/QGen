@@ -49,10 +49,3 @@
         <Plus size={20} strokeWidth={3}/>
     </button>
 </div>
-
-
-<style>
-    .add-button-hover {
-        transition: opacity 0.25s;
-    }
-</style>

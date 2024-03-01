@@ -45,12 +45,12 @@ class NPC {
 class QuestLine {
     _id?: any;
     npc: NPC;
-    quests: QuestItem[] = [];
+    questData: QuestItem[] = [];
     date: Date = new Date();
 
-    constructor(npc: NPC, quests: QuestItem[]) {
+    constructor(npc: NPC, questData: QuestItem[]) {
         this.npc = npc;
-        this.quests = quests;
+        this.questData = questData;
     }
 
 }

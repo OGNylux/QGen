@@ -1,5 +1,5 @@
 import { QuestItem, QuestLine } from "./data";
-import { QuestStore } from "./store";
+import { QuestStore } from "$lib/store";
 
 export function reset() {
     QuestStore.reset();
@@ -7,7 +7,7 @@ export function reset() {
 }
 
 export function newQuest() {
-    QuestStore.add(new QuestItem({
+    QuestStore.addQuestItem(new QuestItem({
     name: "",
     description: "",
     dialogue: [""],
@@ -20,7 +20,41 @@ export function newQuest() {
     }));
 }
 
+export function newQuestLine() {
+    QuestStore.set(new QuestLine({namespace: "", identifier: ""}, [
+        new QuestItem({
+            name: "",
+            description: "",
+            dialogue: [""],
+            progressDialogue: [""],
+            finishedDialogue: [""],
+            itemConditions: [{id: "", amount: 1}],
+            tagConditions: [""],
+            itemRewards: [{id: "", amount: 1}],
+            tagRewards: [""]
+            })
+    ]));
+}
+
+export function formatDate(date: Date) {
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true,
+    });
+  }
+
+export function updateQuestStore(questline: QuestLine) {
+  QuestStore.set(questline);
+}
+
 export function sortDatesByNewest(questLines: QuestLine[]): QuestLine[] {
+    console.log("hi")
+
     return questLines.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 	
@@ -46,11 +80,25 @@ export async function getQuestsDB() {
 }
 
 export async function postQuestDB() {
-    const data = new QuestLine({"namespace": "minecraft", "identifier": "villager"}, QuestStore.get());
-    console.log(data)
+    const data = new QuestLine({"namespace": "minecraft", "identifier": "villager"}, QuestStore.getQuestItems());
 
 	const res = await fetch('http://localhost:80/db/questlines', {
 		method: 'POST',
+		body: JSON.stringify({
+            data
+		})
+	})
+	
+	const result = await res.text()
+    console.log(result)
+}
+
+export async function putQuestDB(id: string) {
+    let data = new QuestLine(QuestStore.getNPC(), QuestStore.getQuestItems());
+    data.date = new Date();
+
+	const res = await fetch(`http://localhost:80/db/questlines/${id}`, {
+		method: 'PUT',
 		body: JSON.stringify({
             data
 		})

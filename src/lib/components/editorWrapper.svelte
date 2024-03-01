@@ -4,7 +4,7 @@
     import { Landmark, PencilRuler } from "lucide-svelte";
 </script>
 
-<Tabs.Root value="0" class="flex flex-row w-full h-full mb-20">
+<Tabs.Root value="editor" class="flex flex-row w-full h-full mb-20">
     <Tabs.List
         class="flex flex-col w-64 h-[512px] rounded-lg bg-neutral-800 overflow-y-auto mt-32"
     >

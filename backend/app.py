@@ -59,12 +59,12 @@ def groups():
     if request.method == 'POST':
         data = json.loads(request.data.decode('utf-8'))['data']
         npc = data['npc']
-        quests = data['quests']
+        questData = data['questData']
         date = data['date']
 
-        new_obj = {
+        new_obj = { 
             'npc': npc,
-            'questData': quests,
+            'questData': questData,
             'date': date
         }
         questLines.insert_one(new_obj)
@@ -74,7 +74,21 @@ def groups():
 @app.route('/db/questlines/<string:group_id>', methods=['PUT', 'DELETE'])
 def single_group(group_id):
     if request.method == 'PUT':
-        pass
+        if len(list(questLines.find({"_id": ObjectId(group_id)}))) > 0:
+            data = json.loads(request.data.decode('utf-8'))['data']
+            npc = data['npc']
+            questData = data['questData']
+            date = data['date']
+
+            new_obj = {
+                'npc': npc,
+                'questData': questData,
+                'date': date
+            }
+
+            questLines.update_one({"_id": ObjectId(group_id)}, {"$set": new_obj})
+            return 'OK', 200
+        return 'Nothing Found', 404
 
     if request.method == 'DELETE':
         if len(list(questLines.find({"_id": ObjectId(group_id)}))) > 0:

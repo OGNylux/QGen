@@ -2,28 +2,27 @@
   import * as Table from "$lib/components/ui/table/index";
   import { QuestLine } from "$lib/data";
   import DeleteDialog from "$lib/components/deleteDialog.svelte";
-  import { deleteQuestDB, getQuestsDB, postQuestDB, sortDatesByNewest } from "$lib/helper";
+  import { deleteQuestDB, formatDate, getQuestsDB, postQuestDB, sortDatesByNewest, updateQuestStore } from "$lib/helper";
   import { beforeUpdate, onMount } from "svelte";
   import Pagination from "./pagination.svelte";
 
   let data: QuestLine[];
-  let test = 1;
+  let page = 1;
 
   const itemsPerPage = 10;
 
   let paginatedData: QuestLine[];
 
   onMount(async () => {
-    postQuestDB()
     data = await getQuestsDB().then((res) => {
-      sortDatesByNewest(res);
-      return res;
+      console.log(sortDatesByNewest(res));
+      return sortDatesByNewest(res);
     });
     paginatedData = getPaginatedData();
   });
 
   function getPaginatedData() {
-    const startIndex = (test - 1) * itemsPerPage;
+    const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     return data?.slice(startIndex, endIndex);
   }
@@ -37,26 +36,14 @@
   }
 
   function getNames(questLine: QuestLine) {
-    if (!questLine.quests) return "";
-    let test: string[] = [];
+    if (!questLine.questData) return "";
+    let names: string[] = [];
 
-    questLine.quests.forEach((element) => {
-      test.push(element.name);
+    questLine.questData.forEach((element) => {
+      names.push(element.name);
     });
 
-    return test.join(", ");
-  }
-
-  function formatDate(date: Date) {
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-      hour12: true,
-    });
+    return names.join(", ");
   }
 </script>
 
@@ -68,18 +55,18 @@
         <Table.Head class="w-[150px]"></Table.Head>
         <Table.Head>NPC</Table.Head>
         <Table.Head>Quests</Table.Head>
-        <Table.Head class="text-right">Creation Date</Table.Head>
+        <Table.Head class="text-right">Last Edit</Table.Head>
       </Table.Row>
     </Table.Header>
     <Table.Body>
       {#each paginatedData as quest }
         <Table.Row class="hover:bg-neutral-900">
           <Table.Cell class="flex flex-row font-medium">
-            <button  
+            <a on:click={() => updateQuestStore(quest)} href="/form"
               class="flex rounded-lg self-center justify-center items-center w-24 p-0.5
             bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50">
               Edit
-            </button>
+            </a>
             <DeleteDialog quest={quest} updateData={updateData} />
           </Table.Cell>
           <Table.Cell>{quest.npc.namespace}:{quest.npc.identifier}</Table.Cell>
@@ -90,7 +77,7 @@
     </Table.Body>
   </Table.Root>
 </div>
-<Pagination bind:currentPage={test} count={data.length} perPage={itemsPerPage} />
+<Pagination bind:currentPage={page} count={data.length} perPage={itemsPerPage} />
 {:else}
    ...waiting
 {/if}

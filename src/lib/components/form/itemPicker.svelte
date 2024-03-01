@@ -10,7 +10,7 @@
       { value: "minecraft:apple", data: 0, label: "Apple" }
     ];
    
-    let inputValue = "";
+    let inputValue = "" || item.id;
    
     $: filteredItems = inputValue
       ? items.filter((item) => item.value.includes(inputValue.toLowerCase()))

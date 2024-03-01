@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { MinecraftItem, QuestItem } from "$lib/data";
-    import { MinusCircle, Plus } from "lucide-svelte";
+    import { Plus, Trash2 } from "lucide-svelte";
     import ItemPicker from "./itemPicker.svelte";
 
     export let quest : QuestItem;
@@ -26,7 +26,7 @@
                 <ItemPicker {item}/>
                 <button on:click={() => {removeFromArray(quest.itemConditions, i); quest.itemConditions = [...quest.itemConditions]}}
                     class="absolute -right-1 -top-1 pb-4 opacity-0 group-hover:opacity-100 add-button-hover text-red-700">
-                    <MinusCircle size={20} strokeWidth={3} />
+                    <Trash2 size={20} strokeWidth={3} />
                 </button>
             </div>
         {/each}
@@ -36,7 +36,7 @@
                 <ItemPicker {item}/>
                 <button on:click={() => {removeFromArray(quest.itemRewards, i); quest.itemConditions = [...quest.itemConditions]}}
                     class="absolute -right-1 -top-1 pb-4 opacity-0 group-hover:opacity-100 add-button-hover text-red-700">
-                    <MinusCircle size={20} strokeWidth={3} />
+                    <Trash2 size={20} strokeWidth={3} />
                 </button>
             </div>
         {/each}

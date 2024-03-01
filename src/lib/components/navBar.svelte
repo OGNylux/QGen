@@ -1,22 +1,7 @@
 <script>
     import { flyAndScale } from "$lib/utils/transitions";
-
-
     import { Menubar } from "bits-ui";
-
 </script>
-<!-- <nav class="z-20 backdrop-blur pt-5 sticky grid place-items-center top-0 left-0 w-full select-none">
-	<div class="bg-neutral-800 flex justify-between p-3 rounded-md w-full lg:w-4/5 xl:w-[70%]">
-		<div class="w-full flex items-center justify-center">
-			<span>Home</span>
-			<div class="flex grow justify-center">
-				<img src="logo.svg" alt="" class="w-32">
-			</div>
-			<span>Documentation</span>
-			<span>Start</span>
-		<div />
-	</div>
-</nav> -->
 
 <nav class="z-20 backdrop-blur pt-5 sticky grid place-items-center top-0 left-0 w-full select-none">
 	<div class="bg-neutral-800 flex justify-between p-3 rounded-md w-full lg:w-4/5 xl:w-[70%]">

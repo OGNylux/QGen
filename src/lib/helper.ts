@@ -53,8 +53,6 @@ export function updateQuestStore(questline: QuestLine) {
 }
 
 export function sortDatesByNewest(questLines: QuestLine[]): QuestLine[] {
-    console.log("hi")
-
     return questLines.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 	
@@ -80,7 +78,7 @@ export async function getQuestsDB() {
 }
 
 export async function postQuestDB() {
-    const data = new QuestLine({"namespace": "minecraft", "identifier": "villager"}, QuestStore.getQuestItems());
+    const data = new QuestLine(QuestStore.getNPC(), QuestStore.getQuestItems());
 
 	const res = await fetch('http://localhost:80/db/questlines', {
 		method: 'POST',

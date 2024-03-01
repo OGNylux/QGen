@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { QuestItem } from "$lib/data";
-    import { MinusCircle, Plus } from "lucide-svelte";
+    import { Plus, Trash2 } from "lucide-svelte";
 
     export let quest : QuestItem;
     export let mode : string;
@@ -28,7 +28,7 @@
                     bind:value={quest.dialogue[i]} />   
                 <button on:click={() => {removeFromArray(quest.dialogue, i); quest.dialogue = [...quest.dialogue]}}
                     class="absolute -right-1 -top-1 pb-4 opacity-0 group-hover:opacity-100 add-button-hover text-red-700">
-                    <MinusCircle size={20} strokeWidth={3} />
+                    <Trash2 size={20} strokeWidth={3} />
                 </button>
             </div>
         {/each}
@@ -40,7 +40,7 @@
                     bind:value={quest.progressDialogue[i]} />   
                 <button on:click={() => {removeFromArray(quest.progressDialogue, i); quest.progressDialogue = [...quest.progressDialogue]}}
                     class="absolute -right-1 -top-1 pb-4 opacity-0 group-hover:opacity-100 add-button-hover text-red-700">
-                    <MinusCircle size={20} strokeWidth={3} />
+                    <Trash2 size={20} strokeWidth={3} />
                 </button>
             </div>
         {/each}
@@ -52,7 +52,7 @@
                     bind:value={quest.finishedDialogue[i]} />   
                 <button on:click={() => {removeFromArray(quest.finishedDialogue, i); quest.finishedDialogue = [...quest.finishedDialogue]}}
                     class="absolute -right-1 -top-1 pb-4 opacity-0 group-hover:opacity-100 add-button-hover text-red-700">
-                    <MinusCircle size={20} strokeWidth={3} />
+                    <Trash2 size={20} strokeWidth={3} />
                 </button>
             </div>
         {/each}

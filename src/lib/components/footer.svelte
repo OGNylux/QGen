@@ -1,6 +1,3 @@
-<script>
-
-</script>
 <div class="linear w-full grid place-items-center relative text-xl sm:text-base">
 	<footer class="w-full lg:w-4/5 xl:w-[70%] grid place-items-center sm:grid-cols-3 gap-5 sm:gap-0 bg-neutral-800 rounded-md p-10 z-10">
 		<img src="logo.svg" alt="" class="w-64">

@@ -1,8 +1,8 @@
 <script lang="ts">
   import * as Table from "$lib/components/ui/table/index";
   import { QuestLine } from "$lib/data";
-  import DeleteDialog from "$lib/components/deleteDialog.svelte";
-  import { deleteQuestDB, formatDate, getQuestsDB, postQuestDB, sortDatesByNewest, updateQuestStore } from "$lib/helper";
+  import DeleteDialog from "$lib/components/editor/deleteDialog.svelte";
+  import { deleteQuestDB, formatDate, getQuestsDB, sortDatesByNewest, updateQuestStore } from "$lib/helper";
   import { beforeUpdate, onMount } from "svelte";
   import Pagination from "./pagination.svelte";
 
@@ -15,7 +15,6 @@
 
   onMount(async () => {
     data = await getQuestsDB().then((res) => {
-      console.log(sortDatesByNewest(res));
       return sortDatesByNewest(res);
     });
     paginatedData = getPaginatedData();

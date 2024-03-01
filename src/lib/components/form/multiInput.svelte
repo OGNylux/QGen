@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { QuestItem } from "$lib/data";
-    import { MinusCircle, Plus } from "lucide-svelte";
+    import { Plus, Trash2 } from "lucide-svelte";
 
     export let quest : QuestItem;
     export let mode : string;
@@ -25,7 +25,7 @@
                     type="text" bind:value={quest.tagConditions[i]} /> 
                 <button on:click={() => {removeFromArray(quest.tagConditions, i); quest.tagConditions = [...quest.tagConditions]}}
                     class="absolute -right-1 -top-1 pb-4 opacity-0 group-hover:opacity-100 add-button-hover text-red-700">
-                    <MinusCircle size={20} strokeWidth={3} />
+                    <Trash2 size={20} strokeWidth={3} />
                 </button>
             </div>
         {/each}
@@ -37,7 +37,7 @@
                     type="text" bind:value={quest.tagRewards[i]} /> 
                 <button on:click={() => {removeFromArray(quest.tagRewards, i); quest.tagRewards = [...quest.tagRewards]}}
                     class="absolute -right-1 -top-1 pb-4 opacity-0 group-hover:opacity-100 add-button-hover text-red-700">
-                    <MinusCircle size={20} strokeWidth={3} />
+                    <Trash2 size={20} strokeWidth={3} />
                 </button>
             </div>
         {/each}

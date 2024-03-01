@@ -30,7 +30,7 @@
       <ChevronsUpDown class="absolute end-3 top-1/2 size-6 -translate-y-1/2 text-neutral-600"/>
     </div>
    
-    <Combobox.Content class="w-full max-h-96 overflow-y-auto rounded-xl bg-neutral-800 px-1 py-3 shadow-popover text-white"
+    <Combobox.Content class="w-full max-h-96 overflow-y-auto rounded-md bg-neutral-800 px-1 py-3 shadow-popover text-white"
       transition={flyAndScale}
       sideOffset={8}
     >

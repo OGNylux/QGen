@@ -44,7 +44,7 @@
     {/if}
     
     <button on:click={() => newDialogue()} 
-        class="flex rounded-lg justify-self-center justify-center items-center w-24 p-0.5 mt-1 opacity-20 hover:opacity-100 add-button-hover
+        class="flex rounded-md justify-self-center justify-center items-center w-24 p-0.5 mt-1 opacity-20 hover:opacity-100 add-button-hover
         bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50">
         <Plus size={20} strokeWidth={3}/>
     </button>

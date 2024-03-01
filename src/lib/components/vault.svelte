@@ -63,7 +63,7 @@
         <Table.Row class="hover:bg-neutral-900">
           <Table.Cell class="flex flex-row font-medium">
             <a on:click={() => updateQuestStore(quest)} href="/form"
-              class="flex rounded-lg self-center justify-center items-center w-24 p-0.5
+              class="flex rounded-md self-center justify-center items-center w-24 p-0.5
             bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50">
               Edit
             </a>

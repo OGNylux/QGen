@@ -25,11 +25,11 @@
 
 {#if QuestStore}
     <Tabs.Root value="0" class="flex flex-row w-full h-full mb-20">
-        <Tabs.List class="flex flex-col w-64 h-[512px] rounded-lg bg-neutral-800 overflow-y-auto mt-32">
+        <Tabs.List class="flex flex-col w-64 h-[512px] rounded-md bg-neutral-800 overflow-y-auto mt-32">
             <div class="flex flex-col grow p-2 gap-1">
                 {#each questItems as quest, i }
                     <Tabs.Trigger value={String(i)}>
-                        <div class="flex items-center rounded-lg p-1 gap-1 bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50">
+                        <div class="flex items-center rounded-md p-1 gap-1 bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50">
                             <div class="flex justify-center items-center bg-neutral-700/50 w-7 h-7 rounded-full">
                                 <span class="text font-bold">Q{i}</span>
                             </div>
@@ -38,13 +38,13 @@
                     </Tabs.Trigger>
                 {/each}
                 <button on:click={() => addNewQuest()} 
-                    class="flex rounded-lg self-center justify-center items-center w-24 p-0.5 m-1 opacity-20 hover:opacity-100 add-button-hover
+                    class="flex rounded-md self-center justify-center items-center w-24 p-0.5 m-1 opacity-20 hover:opacity-100 add-button-hover
                     bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50">
                     <Plus size={20} strokeWidth={3}/>
                 </button>
             </div>
           <button on:click={() => saveToDB()} 
-              class="flex rounded-lg self-center justify-center items-center w-24 p-0.5 m-1 sticky z-50 bottom-1
+              class="flex rounded-md self-center justify-center items-center w-24 p-0.5 m-1 sticky z-50 bottom-1
               bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50">
               <Plus size={20} strokeWidth={3}/>
         </Tabs.List>

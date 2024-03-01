@@ -1,12 +1,22 @@
 <script lang="ts">
     import NavBar from "$lib/components/navBar.svelte";
     import Footer from "$lib/components/footer.svelte";
-    import EditorWrapper from "$lib/components/editor/editorWrapper.svelte";
+    
+    import { CodeBlock } from 'svhighlight';
+
+    let code = `
+    <CodeBlock
+    language="svelte" 
+    {code}
+    showHeader={true}
+    showLineNumbers={true}
+/>
+    `;
 
 </script>
 
 <div class="">
     <NavBar />
-    <EditorWrapper />
+    ...
     <Footer/>
 </div>

@@ -4,8 +4,10 @@
     import Footer from "$lib/components/footer.svelte";
     import { QuestStore } from "$lib/store";
     import { newQuestLine } from "$lib/helper";
+    import { goto } from "$app/navigation";
 
     if(!QuestStore.getQuestItems()) newQuestLine();
+    if(QuestStore.getNPC().identifier === "") goto('/editor');
 </script>
 
 <div class="h-full">

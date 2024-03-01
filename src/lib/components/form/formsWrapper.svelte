@@ -79,13 +79,13 @@
                     <Plus size={20} strokeWidth={3} />
                 </button>
             </div>
-            <button
-                on:click={() => saveToDB()}
+            <a
+                on:click={() => console.log()} href="/download"
                 class="flex rounded-md self-center justify-center items-center w-24 p-0.5 m-1 sticky z-50 bottom-1
-              bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50"
+              bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50"
             >
-                <Plus size={20} strokeWidth={3} />
-            </button></Tabs.List
+                Generate
+            </a></Tabs.List
         >
         <div class="w-full">
             {#each questItems as item, i}

@@ -1,10 +1,18 @@
+import { join } from 'path';
 import { fontFamily } from "tailwindcss/defaultTheme";
+import { skeleton } from '@skeletonlabs/tw-plugin';
 
 /** @type {import('tailwindcss').Config} */
 const config = {
 	darkMode: ["class"],
-	content: ["./src/**/*.{html,js,svelte,ts}"],
-  safelist: ["dark"],
+	content: [
+		"./src/**/*.{html,js,svelte,ts}",
+		join(require.resolve(
+			'@skeletonlabs/skeleton'),
+			'../**/*.{html,js,svelte,ts}'
+		)
+	],
+  	safelist: ["dark"],
 	theme: {
 		container: {
 			center: true,
@@ -59,6 +67,9 @@ const config = {
 			}
 		}
 	},
+	plugins: [
+		skeleton
+	]
 };
 
 export default config;

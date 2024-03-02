@@ -16,7 +16,7 @@
     }
 </script>
 
-<div class="flex flex-col w-full h-36 place-items-center overflow-y-auto rounded-xl border-2 border-neutral-700 p-2 shadow-popover">
+<div class="grid w-full h-36 pr-3 place-items-center overflow-y-auto rounded-md border-2 border-neutral-700 p-2 shadow-popover">
     {#if mode === "condition"}
         {#each quest.tagConditions as _, i}
             <div class="w-full z-10 relative group">

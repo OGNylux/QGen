@@ -10,6 +10,8 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
+		"@skeletonlabs/skeleton": "^2.9.0",
+		"@skeletonlabs/tw-plugin": "^0.3.1",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
@@ -28,6 +30,7 @@
 		"bits-ui": "^0.18.1",
 		"clsx": "^2.1.0",
 		"framer-motion": "^11.0.6",
+		"highlight.js": "^11.9.0",
 		"lucide-svelte": "^0.331.0",
 		"simplex-noise": "^4.0.1",
 		"tailwind-merge": "^2.2.1",

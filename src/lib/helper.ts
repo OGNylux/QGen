@@ -1,5 +1,6 @@
 import { QuestItem, QuestLine } from "./data";
 import { QuestStore } from "$lib/store";
+import JSZip from "jszip";
 
 export function reset() {
     QuestStore.reset();
@@ -55,18 +56,37 @@ export function updateQuestStore(questline: QuestLine) {
 export function sortDatesByNewest(questLines: QuestLine[]): QuestLine[] {
     return questLines.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
+
+export async function download() {
+	// get zip file from endpoint
+	let res = await fetch(`http://localhost:80/test`, {
+		method: 'GET',
+	});
+
+	// convert zip file to url object (for anchor tag download)
+	let blob = await res.blob();
+	var url = window.URL || window.webkitURL;
+	let link = url.createObjectURL(blob);
+
+	let a = document.createElement("a");
+	a.setAttribute("download", `image.txt`);
+	a.setAttribute("href", link);
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
+}
 	
 export async function postQuestToGenerator () {
-	const res = await fetch('http://localhost:80/test2', {
+	const response = await fetch('http://localhost:80/generator', {
 		method: 'POST',
 		body: JSON.stringify({
 			quests: QuestStore.get()
 		})
 	})
 	
-	const json = await res.json()
-	const result = JSON.stringify(json)
-    console.log(result)
+	const tmp : string = await response.json();
+    const test: string[] = JSON.parse(JSON.stringify(tmp))
+    return test
 }
 
 export async function getQuestsDB() {

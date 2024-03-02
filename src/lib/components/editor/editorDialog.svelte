@@ -62,9 +62,8 @@
                 </Dialog.Close>
                 {#if $QuestStore.npc.identifier != "" && $QuestStore.npc.namespace != ""}
                     <a
-                        on:click={() => console.log($QuestStore.npc.identifier, $QuestStore.npc.namespace)}
                         href="/form"
-                        class="flex items-center rounded-md py-1 w-full bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50 focus:outline-none text-xl font-bold justify-center"
+                        class="flex items-center rounded-md py-1 w-full bg-emerald-600  hover:bg-emerald-500 focus:outline-none text-xl font-bold justify-center"
                     >
                         Start
                     </a>

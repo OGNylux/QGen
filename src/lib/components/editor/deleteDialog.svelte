@@ -17,7 +17,7 @@
         <AlertDialog.Overlay
             transition={fade}
             transitionConfig={{ duration: 150 }}
-            class="fixed inset-0 z-50 bg-black/80"
+            class="fixed inset-0 z-50 bg-black/60"
         />
         <AlertDialog.Content
             transition={flyAndScale}
@@ -28,18 +28,16 @@
                     >Confirm your deletion</AlertDialog.Title
                 >
                 <AlertDialog.Description class="text-sm text-foreground-alt">
-                    This action cannot be undone. This will permanently delete this questline. Do you wish to contionue?
+                    This action cannot be undone. This will permanently delete this questline. Do you wish to continue?
                 </AlertDialog.Description>
             </div>
             <div class="flex w-full items-center justify-center gap-2">
                 <AlertDialog.Cancel
-                    class="inline-flex h-10 w-full items-center justify-center self-center rounded-md opacity-20 hover:opacity-100 add-button-hover
-                    bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50"
+                    class="flex items-center rounded-md h-10 w-full bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50 focus:outline-none text-xl font-bold justify-center"
                     >Cancel</AlertDialog.Cancel
                 >
                 <AlertDialog.Action on:click={() => updateData(quest)}
-                    class="inline-flex h-10 w-full items-center justify-center self-center rounded-md
-                    bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50"
+                        class="flex items-center rounded-md h-10 w-full bg-emerald-600  hover:bg-emerald-500 focus:outline-none text-xl font-bold justify-center"
                     >Continue</AlertDialog.Action
                 >
             </div>

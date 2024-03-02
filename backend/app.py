@@ -1,6 +1,7 @@
 import json
+import os
 
-from flask import Flask, send_from_directory, request, jsonify
+from flask import Flask, send_from_directory, request, jsonify, send_file, after_this_request, current_app
 from flask_cors import CORS, cross_origin
 import random
 from bson import ObjectId
@@ -50,6 +51,31 @@ def test2():
     return data
 
 
+@app.route("/generator", methods=['POST'])
+def generator():
+
+    test = ['const a = "test"', 'npc.dialogue = hallo', '{\n"translate":"entity.pb:hugo.name"\n}', '{\n"translate":"entity.pb:hugo.name"\n}']
+
+    return test
+
+
+@app.route("/test", methods=['GET'])
+def hi():
+    file_path = "./test.txt"
+    file_handle = open(file_path, 'r')
+
+    # This *replaces* the `remove_file` + @after_this_request code above
+    def stream_and_remove_file():
+        yield from file_handle
+        file_handle.close()
+        os.remove(file_path)
+
+    return current_app.response_class(
+        stream_and_remove_file(),
+        headers={'Content-Disposition': 'attachment', 'filename': 'test.txt'}
+    )
+
+
 @app.route('/db/questlines', methods=['GET', 'POST'])
 def groups():
     if request.method == 'GET':
@@ -62,7 +88,7 @@ def groups():
         questData = data['questData']
         date = data['date']
 
-        new_obj = { 
+        new_obj = {
             'npc': npc,
             'questData': questData,
             'date': date

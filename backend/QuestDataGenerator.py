@@ -1,7 +1,5 @@
 import json
 
-from Quest import Quest
-
 
 class QuestConditions:
     def __init__(self, name: str, conditions: list, reward: list, notFinishedTexts: int):
@@ -23,6 +21,7 @@ def QuestDataGenerator(quests: list):
         notFinishedTexts = len(quest['progressDialogue'])
 
         qConditions = QuestConditions(quest['name'], newConditions, newRewards, notFinishedTexts)
-        arr.append(qConditions.__dict__)
-    jsFile = f'export const QGenQuestConditions = {arr}'
+        arr.append(json.dumps(qConditions.__dict__, indent=4))
+    test = ''.join(arr)
+    jsFile = f'export const QGenQuestConditions = {test}'
     return jsFile

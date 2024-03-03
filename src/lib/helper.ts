@@ -76,24 +76,12 @@ export async function download() {
 	document.body.removeChild(a);
 }
 
-export async function test() {
-	const response = await fetch('http://localhost:80/test2', {
-		method: 'POST',
-		body: JSON.stringify({
-			questLine: QuestStore.get()
-		})
-	})
-	
-	const tmp : string = await response.json();
-    const test: string = JSON.stringify(tmp)
-    return test
-}
 	
 export async function postQuestToGenerator() {
 	const response = await fetch('http://localhost:80/generator', {
 		method: 'POST',
 		body: JSON.stringify({
-			quests: QuestStore.get()
+			questLine: QuestStore.get()
 		})
 	})
 	

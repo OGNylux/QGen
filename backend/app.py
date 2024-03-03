@@ -37,28 +37,14 @@ def home(path):
     return send_from_directory('client/public', path)
 
 
-@app.route("/test2", methods=['POST'])
+@app.route("/generator", methods=['POST'])
 def test2():
     data = json.loads(request.data.decode('utf-8'))
     questLine = data['questLine']
     npc = questLine['npc']
     questData = questLine['questData']
 
-    test5 = [QuestDataGenerator(questData), QuestLangGenerator(npc, questData)]
-    test = test5 + QuestDialogueGenerator(npc, questData)
-
-    print(npc)
-    print(test)
-
-    return data
-
-
-@app.route("/generator", methods=['POST'])
-def generator():
-
-    test = ['const a = "test"', 'npc.dialogue = hallo', '{\n"translate":"entity.pb:hugo.name"\n}', '{\n"translate":"entity.pb:hugo.name"\n}']
-
-    return test
+    return [QuestDataGenerator(questData), QuestLangGenerator(npc, questData)] + QuestDialogueGenerator(npc, questData)
 
 
 @app.route("/test", methods=['GET'])

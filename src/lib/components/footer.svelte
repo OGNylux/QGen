@@ -11,15 +11,15 @@
 			<div class="flex flex-col items-center sm:items-start">
 				<h3 class="mb-5 text-white">More</h3>
 				<a href="https://github.com/OGNylux/QGen" class="text-neutral-600">Github</a>
-				<a href="/memes" class="text-neutral-600" aria-disabled="true">Contact</a>
-				<a href="/" class="text-neutral-600" aria-disabled="true">Privacy Policy</a>
+				<a href="/imprint" class="text-neutral-600" aria-disabled="true">Imprint</a>
+				<a href="/privacy" class="text-neutral-600" aria-disabled="true">Privacy Policy</a>
 			</div>
 		</div>
 		<div class="flex flex-col items-center sm:items-start mt-10 sm:mt-0">
 			<h3 class="text-white">Ready? Set.</h3>
 			<a href="/editor"
                 class="flex rounded-md self-center justify-center items-center w-24 p-0.5 opacity-20 hover:opacity-100 add-button-hover
-                bg-neutral-800 border-emerald-600 border-2 shadow-md shadow-emerald-600/50 hover:bg-neutral-700/50">
+                bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50">
                 Go!
 			</a>
 		</div>

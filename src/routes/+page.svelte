@@ -66,7 +66,7 @@
 		</div>
 	</section>
 	
-	<section class="grid place-items-center mb-64" id="about">
+	<section class="grid mb-32 place-items-center mt-32 sm:mt-0" id="about">
 		<div class="flex flex-col w-1/2 items-center bg-neutral-800 p-4 rounded-md text-center">
 			<h3 class="text-3xl font-bold mb-3">About</h3>
 			<p class="w-2/3">

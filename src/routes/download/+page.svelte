@@ -12,7 +12,7 @@
    import "$lib/utils/lang.min.js"
    import "$lib/utils/lang.es.min.js"
    import lang from "$lib/utils/lang.js"
-   import { download, postQuestToGenerator } from "$lib/helper";
+   import { download, postQuestToGenerator, test } from "$lib/helper";
 
    hljs.registerLanguage("json", json);
    hljs.registerLanguage("javascript", javascript);
@@ -83,7 +83,7 @@
       class="flex items-center rounded-md w-32 h-10 bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50 focus:outline-none text-xl justify-center">
          Edit
       </a>
-      <button on:click={()=> download()}
+      <button on:click={()=> test()}
       class="flex items-center rounded-md w-32 h-10 bg-emerald-600 hover:bg-emerald-500 focus:outline-none text-xl justify-center">
          Download
       </button>

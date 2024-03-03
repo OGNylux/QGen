@@ -9,6 +9,8 @@ from bson.json_util import dumps
 from pymongo import MongoClient
 
 from QuestDataGenerator import QuestDataGenerator
+from QuestDialogueGenerator import QuestDialogueGenerator
+from QuestLangGenerator import QuestLangGenerator
 
 app = Flask(__name__)
 
@@ -35,18 +37,18 @@ def home(path):
     return send_from_directory('client/public', path)
 
 
-@app.route("/rand")
-def hello():
-    test = {"number": random.randint(0, 100)}
-    return jsonify(test)
-
-
-@app.route("/test2", methods=['GET', 'POST'])
+@app.route("/test2", methods=['POST'])
 def test2():
     data = json.loads(request.data.decode('utf-8'))
-    quests = data['quests']
+    questLine = data['questLine']
+    npc = questLine['npc']
+    questData = questLine['questData']
 
-    QuestDataGenerator(quests)
+    test5 = [QuestDataGenerator(questData), QuestLangGenerator(npc, questData)]
+    test = test5 + QuestDialogueGenerator(npc, questData)
+
+    print(npc)
+    print(test)
 
     return data
 
@@ -79,8 +81,8 @@ def hi():
 @app.route('/db/questlines', methods=['GET', 'POST'])
 def groups():
     if request.method == 'GET':
-        booking = dumps(list(questLines.find({})))
-        return booking
+        data = dumps(list(questLines.find({})))
+        return data
 
     if request.method == 'POST':
         data = json.loads(request.data.decode('utf-8'))['data']

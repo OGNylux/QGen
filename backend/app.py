@@ -1,7 +1,10 @@
+import io
 import json
 import os
+import zipfile
+from zipfile import ZipFile
 
-from flask import Flask, send_from_directory, request, jsonify, send_file, after_this_request, current_app
+from flask import Flask, send_from_directory, request, jsonify, send_file, after_this_request, current_app, Response
 from flask_cors import CORS, cross_origin
 import random
 from bson import ObjectId
@@ -11,6 +14,7 @@ from pymongo import MongoClient
 from QuestDataGenerator import QuestDataGenerator
 from QuestDialogueGenerator import QuestDialogueGenerator
 from QuestLangGenerator import QuestLangGenerator
+from fileZipper import zipFile
 
 app = Flask(__name__)
 
@@ -47,21 +51,22 @@ def test2():
     return [QuestDataGenerator(questData), QuestLangGenerator(npc, questData)] + QuestDialogueGenerator(npc, questData)
 
 
-@app.route("/test", methods=['GET'])
+@app.route("/generator/download", methods=['POST'])
 def hi():
-    file_path = "./test.txt"
-    file_handle = open(file_path, 'r')
+    data = json.loads(request.data.decode('utf-8'))
+    questLine = data['questLine']
+    npc = questLine['npc']
+    questData = questLine['questData']
 
-    # This *replaces* the `remove_file` + @after_this_request code above
-    def stream_and_remove_file():
-        yield from file_handle
-        file_handle.close()
-        os.remove(file_path)
+    zipFile(npc, questData)
 
-    return current_app.response_class(
-        stream_and_remove_file(),
-        headers={'Content-Disposition': 'attachment', 'filename': 'test.txt'}
-    )
+    with open("QGen.zip", 'rb') as f:
+        data = f.readlines()
+    os.remove("QGen.zip")
+    return Response(data, headers={
+        'Content-Type': 'application/zip',
+        'Content-Disposition': 'attachment; filename=%s;' % "QGen.zip"
+    })
 
 
 @app.route('/db/questlines', methods=['GET', 'POST'])

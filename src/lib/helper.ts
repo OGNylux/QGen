@@ -1,6 +1,6 @@
 import { QuestItem, QuestLine } from "./data";
 import { QuestStore } from "$lib/store";
-import JSZip from "jszip";
+import { v4 as uuid } from 'uuid';
 
 export function reset() {
     QuestStore.reset();
@@ -58,22 +58,22 @@ export function sortDatesByNewest(questLines: QuestLine[]): QuestLine[] {
 }
 
 export async function download() {
-	// get zip file from endpoint
-	let res = await fetch(`http://localhost:80/test`, {
-		method: 'GET',
-	});
+	const response = await fetch('http://localhost:80/generator/download', {
+		method: 'POST',
+		body: JSON.stringify({
+			questLine: QuestStore.get()
+		})
+	})
 
-	// convert zip file to url object (for anchor tag download)
-	let blob = await res.blob();
-	var url = window.URL || window.webkitURL;
-	let link = url.createObjectURL(blob);
+	let blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    const id: string = uuid();
 
-	let a = document.createElement("a");
-	a.setAttribute("download", `image.txt`);
-	a.setAttribute("href", link);
-	document.body.appendChild(a);
-	a.click();
-	document.body.removeChild(a);
+    link.download = `QGen_${id}.zip`;
+    link.href = url;
+    link.click();
+    URL.revokeObjectURL(url);
 }
 
 	

@@ -12,7 +12,7 @@
    import "$lib/utils/lang.min.js"
    import "$lib/utils/lang.es.min.js"
    import lang from "$lib/utils/lang.js"
-   import { postQuestToGenerator } from "$lib/helper";
+   import { download, postQuestToGenerator } from "$lib/helper";
 
    hljs.registerLanguage("json", json);
    hljs.registerLanguage("javascript", javascript);
@@ -21,6 +21,7 @@
    storeHighlightJs.set(hljs);
 
    const codeArray = postQuestToGenerator();
+   console.log();
 </script>
 
 <div class="">
@@ -59,13 +60,13 @@
             {#await codeArray}
                   waiting for code to load...
                {:then value}
-                  {#each value.splice(0,2) as _, i (i)}
+                  {#each value.slice(2) as test, i (i)}
                    <Carousel.Item>
                      <div class="p-1">
                         <div class="h-96 mx-auto overflow-y-auto rounded-md border-2 border-neutral-700 shadow-popover">
                            <CodeBlock
                            language="json"
-                           code={value[i]}
+                           code={test}
                            background="bg-neutral-900/50"
                        ></CodeBlock>
                         </div>
@@ -83,7 +84,7 @@
       class="flex items-center rounded-md w-32 h-10 bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50 focus:outline-none text-xl justify-center">
          Edit
       </a>
-      <button on:click={()=> postQuestToGenerator()}
+      <button on:click={()=> download()}
       class="flex items-center rounded-md w-32 h-10 bg-emerald-600 hover:bg-emerald-500 focus:outline-none text-xl justify-center">
          Download
       </button>

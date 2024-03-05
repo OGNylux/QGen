@@ -4,6 +4,7 @@
   	import { ChevronDown, DollarSign, FastForward, Lollipop } from "lucide-svelte";
     import Footer from "$lib/components/footer.svelte";
     import { Separator } from "bits-ui";
+    import { toast } from "svelte-sonner";
 </script>
 
 
@@ -22,7 +23,6 @@
 		<ChevronDown class="animate-bounce mb-5 cursor-pointer" />
 	</a>
 	</section>
-
 	<section class="sm:h-screen grid place-items-center" id="functions">
 		<div
 			class="w-full lg:w-4/5 xl:w-[70%] grid place-items-center md:place-items-start grid-cols-1 lg:grid-cols-3 relative"

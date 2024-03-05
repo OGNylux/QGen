@@ -5,9 +5,10 @@
     import Form from "$lib/components/form/form.svelte";
     import { QuestItem } from "$lib/data";
     import { newQuest, postQuestDB, putQuestDB } from "$lib/helper";
+    import { onMount } from "svelte";
 
     let questItems: QuestItem[] = [];
-
+    
     questItems = QuestStore.getQuestItems();
 
     function addNewQuest() {

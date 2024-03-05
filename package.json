@@ -35,7 +35,9 @@
 		"highlight.js": "^11.9.0",
 		"jszip": "^3.10.1",
 		"lucide-svelte": "^0.331.0",
+		"mode-watcher": "^0.2.2",
 		"simplex-noise": "^4.0.1",
+		"svelte-sonner": "^0.3.19",
 		"tailwind-merge": "^2.2.1",
 		"tailwind-variants": "^0.2.0",
 		"uuid": "^9.0.1"

@@ -4,6 +4,7 @@
   import DeleteDialog from "$lib/components/editor/deleteDialog.svelte";
   import { deleteQuestDB, formatDate, getQuestsDB, sortDatesByNewest, updateQuestStore } from "$lib/helper";
   import { beforeUpdate, onMount } from "svelte";
+  import { toast } from "svelte-sonner";
   import Pagination from "./pagination.svelte";
 
   let data: QuestLine[];
@@ -16,6 +17,10 @@
   onMount(async () => {
     data = await getQuestsDB().then((res) => {
       return sortDatesByNewest(res);
+    }).catch((err) => {
+      toast.error("An Error has occured", {
+        description: `Error: ${err.message}`
+      });
     });
     paginatedData = getPaginatedData();
   });

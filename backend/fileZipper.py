@@ -25,5 +25,8 @@ def zipFile(npc: dict, quests: list):
 
     zf.close()
 
-    open(f'QGen.zip', 'wb').write(b.getbuffer())
-    return f'QGen.zip'
+    newUuid = uuid.uuid4()
+    fileName = f'QGen_{newUuid}.zip'
+
+    open(fileName, 'wb').write(b.getbuffer())
+    return fileName

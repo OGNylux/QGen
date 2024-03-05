@@ -21,11 +21,9 @@
             </Tabs.Trigger>
         </div>
     </Tabs.List>
-    <div class="w-full">
-        <Tabs.Content value={"vault"} class="pt-10 px-4">
-            <div class="w-5/6 ml-[72px]">
-                <Vault />
-            </div>
-        </Tabs.Content>
-    </div>
+    <Tabs.Content value={"vault"} class="pt-10 px-4 w-full h-full">
+        <div class="w-5/6 ml-[72px]">
+            <Vault />
+        </div>
+    </Tabs.Content>
 </Tabs.Root>

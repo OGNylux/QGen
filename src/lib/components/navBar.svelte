@@ -26,7 +26,9 @@
 			</Menubar.Menu>
 			<a class="inline-flex w-20 items-center justify-center rounded-md px-3 py-1 hover:bg-neutral-700" href="/docs">Docs</a>
 			<div class="flex grow justify-center">
-				<img src="logo.svg" alt="" class="w-28">
+				<a href="/#top">
+					<img src="logo.svg" alt="" class="w-28">
+				</a>
 			</div>
 			<div class="w-20">
 			</div>

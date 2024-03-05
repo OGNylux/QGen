@@ -58,14 +58,14 @@ def hi():
     npc = questLine['npc']
     questData = questLine['questData']
 
-    zipFile(npc, questData)
+    fileName = zipFile(npc, questData)
 
-    with open("QGen.zip", 'rb') as f:
+    with open(fileName, 'rb') as f:
         data = f.readlines()
-    os.remove("QGen.zip")
+    os.remove(fileName)
     return Response(data, headers={
         'Content-Type': 'application/zip',
-        'Content-Disposition': 'attachment; filename=%s;' % "QGen.zip"
+        'Content-Disposition': 'attachment; filename=%s;' % fileName
     })
 
 

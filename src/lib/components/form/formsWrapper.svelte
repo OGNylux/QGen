@@ -80,7 +80,7 @@
                 </button>
             </div>
             <a
-                on:click={() => console.log()} href="/download"
+                on:click={() => saveToDB()} href="/download"
                 class="flex rounded-md self-center justify-center items-center w-24 p-0.5 m-1 sticky z-50 bottom-1
               bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50"
             >
@@ -98,5 +98,7 @@
         </div>
     </Tabs.Root>
 {:else}
-    ...waiting
+    <div class="flex w-full h-[80vh] justify-center place-items-center">
+      <img src="spin.svg" alt="" class="w-28">
+    </div>
 {/if}

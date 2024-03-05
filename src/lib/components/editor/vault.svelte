@@ -47,7 +47,7 @@
 </script>
 
 {#if paginatedData}
-<div class="min-h-[70vh]">
+<div class="h-[70vh]">
   <Table.Root>
     <Table.Header>
       <Table.Row class="hover:bg-neutral-900">
@@ -77,6 +77,8 @@
   </Table.Root>
 </div>
 <Pagination bind:currentPage={page} count={data.length} perPage={itemsPerPage} />
-{:else}
-   ...waiting
+{:else}  
+  <div class="flex w-full h-[80vh] justify-center place-items-center">
+    <img src="spin.svg" alt="" class="w-28">
+  </div>
 {/if}

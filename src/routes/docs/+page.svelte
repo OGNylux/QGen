@@ -1,6 +1,4 @@
 <script lang="ts">
-    import NavBar from "$lib/components/navBar.svelte";
-    import Footer from "$lib/components/footer.svelte";
     import { CodeBlock } from "@skeletonlabs/skeleton";
     import hljs from "highlight.js/lib/core";
     import "highlight.js/styles/atom-one-dark.css";
@@ -19,8 +17,7 @@
 },`;
 </script>
 
-<NavBar />
-<div class="grid sm:grid-cols-2 sm:grid-rows-4 gap-10 w-2/3 mx-auto mt-12 ">
+<div class="grid sm:grid-cols-2 sm:grid-rows-4 gap-10 w-2/3 mx-auto">
     <div>
         <h1 class="text-xl font-bold">1. Create your NPC</h1>
         <p>
@@ -62,4 +59,3 @@
         As of Minecraft Bedrock Version 1.20.62 this generator needs the 'Beta-APIs' to be activated. This also means that scripting needs to be enabled in the manifest.json file. This is a limitation of the game and not the generator.
     </p>
 </div>
-<Footer />

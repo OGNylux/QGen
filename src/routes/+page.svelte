@@ -1,15 +1,10 @@
 <script lang="ts">
   	import { WavyBackground } from "$lib/components/ui/WavyBackground/index";
-  	import NavBar from "$lib/components/navBar.svelte";
   	import { ChevronDown, DollarSign, FastForward, Lollipop } from "lucide-svelte";
-    import Footer from "$lib/components/footer.svelte";
     import { Separator } from "bits-ui";
-    import { toast } from "svelte-sonner";
 </script>
 
-
-<div class="scroll-smooth" id="top">
-	<NavBar />
+<div class="scroll-smooth">
 	<section class="h-screen relative">
 	<WavyBackground className="max-w-4xl mx-auto pb-40">
 		<p class="inter-var text-center text-2xl font-bold text-white md:text-4xl lg:text-7xl">
@@ -20,7 +15,7 @@
 		</p>
 	</WavyBackground>
 	<a href="/#functions" class="absolute bottom-20 flex justify-center w-full">
-		<ChevronDown class="animate-bounce mb-5 cursor-pointer" />
+		<ChevronDown class="animate-bounce mb-20 cursor-pointer" />
 	</a>
 	</section>
 	<section class="sm:h-screen grid place-items-center" id="functions">
@@ -82,6 +77,4 @@
 			</p>
 		</div>
 	</section>
-
-	<Footer />
 </div>

@@ -36,7 +36,7 @@
       canvas = canvasRef;
       ctx = canvas.getContext("2d");
       ctx.canvas.width = window.innerWidth;
-      ctx.canvas.height = window.innerHeight;
+      ctx.canvas.height = window.innerHeight * 0.9;
       
       w = ctx.canvas.width;
       h = ctx.canvas.height;

@@ -2,7 +2,7 @@
     import { newQuestLine } from "$lib/helper";
     import { QuestStore } from "$lib/store";
     import { flyAndScale } from "$lib/utils/transitions";
-    import { Dialog, Separator, Label } from "bits-ui";
+    import { Dialog, Separator } from "bits-ui";
     import { PencilRuler, X } from "lucide-svelte";
     import { fade } from "svelte/transition";
 

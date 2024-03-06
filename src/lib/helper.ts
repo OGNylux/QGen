@@ -58,7 +58,7 @@ export function sortDatesByNewest(questLines: QuestLine[]): QuestLine[] {
 }
 
 export async function download() {
-	const response = await fetch('http://localhost:80/generator/download', {
+	const response = await fetch('http://localhost:5000/generator/download', {
 		method: 'POST',
 		body: JSON.stringify({
 			questLine: QuestStore.get()
@@ -78,7 +78,7 @@ export async function download() {
 
 	
 export async function postQuestToGenerator() {
-	const response = await fetch('http://localhost:80/generator', {
+	const response = await fetch('http://localhost:5000/generator', {
 		method: 'POST',
 		body: JSON.stringify({
 			questLine: QuestStore.get()
@@ -91,7 +91,7 @@ export async function postQuestToGenerator() {
 }
 
 export async function getQuestsDB() {
-    const response = await fetch('http://localhost:80/db/questlines')
+    const response = await fetch('http://localhost:5000/db/questlines')
 	
 	const tmp : string = await response.json();
     const test: QuestLine[] = JSON.parse(JSON.stringify(tmp))
@@ -101,7 +101,7 @@ export async function getQuestsDB() {
 export async function postQuestDB() {
     const data = new QuestLine(QuestStore.getNPC(), QuestStore.getQuestItems());
 
-	const res = await fetch('http://localhost:80/db/questlines', {
+	const res = await fetch('http://localhost:5000/db/questlines', {
 		method: 'POST',
 		body: JSON.stringify({
             data
@@ -116,7 +116,7 @@ export async function putQuestDB(id: string) {
     let data = new QuestLine(QuestStore.getNPC(), QuestStore.getQuestItems());
     data.date = new Date();
 
-	const res = await fetch(`http://localhost:80/db/questlines/${id}`, {
+	const res = await fetch(`http://localhost:5000/db/questlines/${id}`, {
 		method: 'PUT',
 		body: JSON.stringify({
             data
@@ -128,7 +128,7 @@ export async function putQuestDB(id: string) {
 }
 
 export async function deleteQuestDB(id: string) {
-	const response = await fetch(`http://localhost:80/db/questlines/${id}`, {
+	const response = await fetch(`http://localhost:5000/db/questlines/${id}`, {
 		method: 'DELETE'
 	})
 	

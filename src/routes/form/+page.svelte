@@ -12,6 +12,8 @@
 
 <div class="h-full">
     <NavBar />
-    <FormsWrapper />
+    <div class="mb-4">
+        <FormsWrapper />
+    </div>
     <Footer/>
 </div>

@@ -1,12 +1,8 @@
-import io
 import json
 import os
-import zipfile
-from zipfile import ZipFile
 
-from flask import Flask, send_from_directory, request, jsonify, send_file, after_this_request, current_app, Response
+from flask import Flask, send_from_directory, request, Response
 from flask_cors import CORS, cross_origin
-import random
 from bson import ObjectId
 from bson.json_util import dumps
 from pymongo import MongoClient
@@ -117,4 +113,4 @@ def single_group(group_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=80)
+    app.run(debug=True, host='0.0.0.0', port=5000)

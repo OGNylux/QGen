@@ -11,8 +11,8 @@
 			<div class="flex flex-col items-center sm:items-start">
 				<h3 class="mb-5 text-white">More</h3>
 				<a href="https://github.com/OGNylux/QGen" class="text-neutral-600">Github</a>
-				<a href="/imprint" class="text-neutral-600" aria-disabled="true">Imprint</a>
-				<a href="/privacy" class="text-neutral-600" aria-disabled="true">Privacy Policy</a>
+				<a href="/imprint#top" class="text-neutral-600" aria-disabled="true">Imprint</a>
+				<a href="/privacy#top" class="text-neutral-600" aria-disabled="true">Privacy Policy</a>
 			</div>
 		</div>
 		<div class="flex flex-col items-center sm:items-start mt-10 sm:mt-0">

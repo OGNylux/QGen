@@ -18,16 +18,20 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.json.sort_keys = False
 
-cluster = MongoClient(host="localhost", port=27017, serverSelectionTimeoutMS=1000)
+#cluster = MongoClient(host="localhost", port=27017, serverSelectionTimeoutMS=1000)
+cluster = MongoClient('mongodb://database:27017/qgen')
 
 db = cluster.qgen
 questLines = db.questlines
-
 
 # Path for our main Svelte page
 @app.route("/")
 def base():
     return send_from_directory('client/public', 'index.html')
+
+@app.route("/hi")
+def yuh():
+    return "hi"
 
 
 # Path for all the static files (compiled JS/CSS, etc.)

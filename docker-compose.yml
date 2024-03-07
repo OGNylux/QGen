@@ -1,0 +1,19 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      DB_URL: mongodb://database/qgen
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+  database:
+    image: mongo:4.0-xenial
+    ports:
+      - "27017:27017"
+    volumes:
+      - qgen:/data/db
+volumes:
+  qgen:

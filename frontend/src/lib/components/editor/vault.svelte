@@ -52,36 +52,45 @@
 </script>
 
 {#if paginatedData}
-<div class="h-[70vh]">
-  <Table.Root>
-    <Table.Header>
-      <Table.Row class="hover:bg-neutral-900">
-        <Table.Head class="w-[150px]"></Table.Head>
-        <Table.Head>NPC</Table.Head>
-        <Table.Head>Quests</Table.Head>
-        <Table.Head class="text-right">Last Edit</Table.Head>
-      </Table.Row>
-    </Table.Header>
-    <Table.Body>
-      {#each paginatedData as quest }
+  <div class="h-[70vh]">
+    <Table.Root>
+      <Table.Header>
         <Table.Row class="hover:bg-neutral-900">
-          <Table.Cell class="flex flex-row font-medium">
-            <a on:click={() => updateQuestStore(quest)} href="/form"
-              class="flex rounded-md self-center justify-center items-center w-24 p-0.5
-            bg-neutral-800 border-emerald-600 border-2  hover:bg-neutral-700/50">
-              Edit
-            </a>
-            <DeleteDialog quest={quest} updateData={updateData} />
-          </Table.Cell>
-          <Table.Cell>{quest.npc.namespace}:{quest.npc.identifier}</Table.Cell>
-          <Table.Cell class="truncate">{getNames(quest)}</Table.Cell>
-          <Table.Cell class="text-right">{formatDate(new Date(quest.date))}</Table.Cell>
+          <Table.Head class="w-[150px]"></Table.Head>
+          <Table.Head>NPC</Table.Head>
+          <Table.Head>Quests</Table.Head>
+          <Table.Head class="text-right">Last Edit</Table.Head>
         </Table.Row>
-      {/each}
-    </Table.Body>
-  </Table.Root>
-</div>
-<Pagination bind:currentPage={page} count={data.length} perPage={itemsPerPage} />
+      </Table.Header>
+      <Table.Body>
+        {#if paginatedData.length > 0}
+          {#each paginatedData as quest }
+            <Table.Row class="hover:bg-neutral-900">
+              <Table.Cell class="flex flex-row font-medium w-[150px]">
+                <a on:click={() => updateQuestStore(quest)} href="/form"
+                  class="flex rounded-md self-center justify-center items-center w-24 p-0.5
+                bg-neutral-800 border-emerald-600 border-2  hover:bg-neutral-700/50">
+                  Edit
+                </a>
+                <DeleteDialog quest={quest} updateData={updateData} />
+              </Table.Cell>
+              <Table.Cell class="w-1/5 truncate">{quest.npc.namespace}:{quest.npc.identifier}</Table.Cell>
+              <Table.Cell class="truncate">{getNames(quest)}</Table.Cell>
+              <Table.Cell class="w-64 text-right">{formatDate(new Date(quest.date))}</Table.Cell>
+            </Table.Row>
+          {/each}
+        {/if}
+      </Table.Body>
+    </Table.Root>
+    {#if paginatedData.length == 0}
+      <p class="mt-4 text-center">Nothing to see here... Maybe add a quest?</p>
+    {/if}
+  </div>
+  {#if paginatedData.length > 0}
+    <Pagination bind:currentPage={page} count={data.length} perPage={itemsPerPage} />
+  {:else}  
+    <div class="h-8 my-8"></div>
+  {/if}
 {:else}  
   <div class="flex w-full h-[80vh] justify-center place-items-center">
     <img src="spin.svg" alt="" class="w-28">

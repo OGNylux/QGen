@@ -8,17 +8,7 @@ QGen is an app that helps you create quests or entire questlines for the Minecra
 
 ## Developing
 
-Once you've cloned the project and installed dependencies with `npm install`, start a development server:
-
-```bash
-npm run dev
-```
-
-## Building
-
-### NPM
-
-#### Install dependencies
+Once you've cloned the project and install the dependencies:
 
 NPM:
 
@@ -32,7 +22,23 @@ Python:
 pip install -r requirements.txt
 ```
 
-#### Build
+And start a development server:
+
+NPM:
+
+```bash
+npm run dev
+```
+
+Python:
+
+```bash
+python app.py
+```
+
+## Building
+
+### NPM
 
 To create a production version of the app:
 

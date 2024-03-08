@@ -1,6 +1,6 @@
 # QGen
 
-QGen is an app that helps you create quests or entire questlines for the Minecraft Bedrock Edition. Simply fill out the form, click generate and follow the intructions to fully working quests in your game!
+QGen is an app that helps you create quests or entire questlines for the Minecraft Bedrock Edition. Simply fill out the form, click generate and follow the intructions to get fully working quests in your game!
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ npm run build
 
 ### Docker
 
-(Swap the database connection in app.py)
+(Swap the database connection in app.py.)
 
 To create a production version of the app:
 

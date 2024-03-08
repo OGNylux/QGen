@@ -28,6 +28,7 @@ npm run build
 
 ### Docker
 
+(Swap the database connection in app.py)
 To create a production version of the app:
 
 ```bash

@@ -18,8 +18,8 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.json.sort_keys = False
 
-#cluster = MongoClient(host="localhost", port=27017, serverSelectionTimeoutMS=1000)
-cluster = MongoClient('mongodb://database:27017/qgen')
+cluster = MongoClient(host="localhost", port=27017, serverSelectionTimeoutMS=1000)      # use this without docker
+#cluster = MongoClient('mongodb://database:27017/qgen')                                 # use this with docker
 
 db = cluster.qgen
 questLines = db.questlines
@@ -29,11 +29,6 @@ questLines = db.questlines
 def base():
     return send_from_directory('client/public', 'index.html')
 
-@app.route("/hi")
-def yuh():
-    return "hi"
-
-
 # Path for all the static files (compiled JS/CSS, etc.)
 @app.route("/<path:path>")
 @cross_origin()
@@ -42,7 +37,7 @@ def home(path):
 
 
 @app.route("/generator", methods=['POST'])
-def test2():
+def generate():
     data = json.loads(request.data.decode('utf-8'))
     questLine = data['questLine']
     npc = questLine['npc']
@@ -52,7 +47,7 @@ def test2():
 
 
 @app.route("/generator/download", methods=['POST'])
-def hi():
+def download():
     data = json.loads(request.data.decode('utf-8'))
     questLine = data['questLine']
     npc = questLine['npc']
@@ -70,7 +65,7 @@ def hi():
 
 
 @app.route('/db/questlines', methods=['GET', 'POST'])
-def groups():
+def questlines():
     if request.method == 'GET':
         data = dumps(list(questLines.find({})))
         return data
@@ -91,7 +86,7 @@ def groups():
 
 
 @app.route('/db/questlines/<string:group_id>', methods=['PUT', 'DELETE'])
-def single_group(group_id):
+def questline(group_id):
     if request.method == 'PUT':
         if len(list(questLines.find({"_id": ObjectId(group_id)}))) > 0:
             data = json.loads(request.data.decode('utf-8'))['data']

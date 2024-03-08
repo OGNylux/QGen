@@ -18,6 +18,22 @@ npm run dev
 
 ### NPM
 
+#### Install dependencies
+
+NPM:
+
+```bash
+npm install
+```
+
+Python:
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Build
+
 To create a production version of the app:
 
 ```bash

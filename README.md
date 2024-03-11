@@ -5,6 +5,7 @@ QGen is an app that helps you create quests or entire questlines for the Minecra
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/de) (>= 18.0.0)
+- [Python](https://www.python.org/) (>= 3.12)
 
 ## Developing
 

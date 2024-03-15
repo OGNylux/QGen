@@ -5,11 +5,7 @@
     import Footer from "$lib/components/footer.svelte";
 </script>
 
-<div id="top" class="bg-neutral-900 h-screen font-poppins text-white overflow-x-hidden">
+<div class="bg-neutral-900 h-screen font-poppins text-white overflow-x-hidden">
     <Toaster />
-    <NavBar />
-    <div class="my-12">
-        <slot />
-    </div>
-    <Footer/>
+    <slot />
 </div>

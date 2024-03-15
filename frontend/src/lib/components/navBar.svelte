@@ -3,7 +3,7 @@
     import { Menubar } from "bits-ui";
 </script>
 
-<nav class="z-20 backdrop-blur pt-5 sticky grid place-items-center top-0 left-0 w-full select-none">
+<nav class="z-20 backdrop-blur pt-5 sticky grid place-items-center top-0 left-0 w-full select-none mb-12">
 	<div class="bg-neutral-800 flex justify-between p-3 rounded-md w-full lg:w-4/5 xl:w-[70%]">
 		<Menubar.Root class="w-full flex items-center justify-center">
 			<Menubar.Menu>
@@ -24,7 +24,7 @@
 				</div>
 			  </Menubar.Content>
 			</Menubar.Menu>
-			<a class="inline-flex w-20 items-center justify-center rounded-md px-3 py-1 hover:bg-neutral-700" href="/docs">Docs</a>
+			<a class="inline-flex w-20 items-center justify-center rounded-md px-3 py-1 hover:bg-neutral-700" href="/docs#top">Docs</a>
 			<div class="flex grow justify-center">
 				<a href="/#top">
 					<img src="logo.svg" alt="" class="w-28">
@@ -32,7 +32,7 @@
 			</div>
 			<div class="w-20">
 			</div>
-			<a class="inline-flex w-20 items-center justify-center rounded-md px-3 py-1 hover:bg-neutral-700" href="/editor">Editor</a>
+			<a class="inline-flex w-20 items-center justify-center rounded-md px-3 py-1 hover:bg-neutral-700" href="/editor#top">Editor</a>
 		</Menubar.Root>
 	</div>
 </nav>

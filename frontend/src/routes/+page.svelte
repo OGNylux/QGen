@@ -2,11 +2,14 @@
   	import { WavyBackground } from "$lib/components/ui/WavyBackground/index";
   	import { ChevronDown, DollarSign, FastForward, Lollipop } from "lucide-svelte";
     import { Separator } from "bits-ui";
+    import NavBar from "$lib/components/navBar.svelte";
+    import Footer from "$lib/components/footer.svelte";
 </script>
 
-<div class="scroll-smooth">
-	<section class="h-screen relative">
-	<WavyBackground className="max-w-4xl mx-auto pb-40">
+<div id="top" class="scroll-smooth">
+	<NavBar />
+	<section class="h-screen relative -mt-20">
+	<WavyBackground className="max-w-4xl my-auto mx-auto pb-40">
 		<p class="inter-var text-center text-2xl font-bold text-white md:text-4xl lg:text-7xl">
 			QGen
 		</p>
@@ -15,7 +18,7 @@
 		</p>
 	</WavyBackground>
 	<a href="/#functions" class="absolute bottom-20 flex justify-center w-full">
-		<ChevronDown class="animate-bounce mb-20 cursor-pointer" />
+		<ChevronDown class="animate-bounce cursor-pointer" />
 	</a>
 	</section>
 	<section class="sm:h-screen grid place-items-center" id="functions">
@@ -77,4 +80,5 @@
 			</p>
 		</div>
 	</section>
+	<Footer />
 </div>

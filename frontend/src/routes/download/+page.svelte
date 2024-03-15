@@ -14,6 +14,8 @@
    import { QuestStore } from "$lib/store";
    import { goto } from "$app/navigation";
    import { onMount } from "svelte";
+    import NavBar from "$lib/components/navBar.svelte";
+    import Footer from "$lib/components/footer.svelte";
 
    hljs.registerLanguage("json", json);
    hljs.registerLanguage("javascript", javascript);
@@ -30,16 +32,17 @@
    if (QuestStore.getNPC().identifier === "") goto("/editor");
 </script>
 
+<NavBar/>
 {#if data}
    <div class="flex justify-center gap-2 mb-2">
       <div
-         class="w-2/5 h-96 overflow-y-auto rounded-md border-2 border-neutral-700 shadow-popover"
+         class="w-2/5 h-72 overflow-y-auto rounded-md border-2 border-neutral-700 shadow-popover"
       >
          <CodeBlock language="js" code={data[0]} background="bg-neutral-900/50"
          ></CodeBlock>
       </div>
       <div
-         class="w-2/5 h-96 overflow-y-auto rounded-md border-2 border-neutral-700 shadow-popover"
+         class="w-2/5 h-72 overflow-y-auto rounded-md border-2 border-neutral-700 shadow-popover"
       >
          <CodeBlock
             language="lang"
@@ -60,7 +63,7 @@
             <Carousel.Item>
                <div class="p-1">
                   <div
-                     class="h-96 mx-auto overflow-y-auto rounded-md border-2 border-neutral-700 shadow-popover"
+                     class="h-72 mx-auto overflow-y-auto rounded-md border-2 border-neutral-700 shadow-popover"
                   >
                      <CodeBlock
                         language="json"
@@ -79,7 +82,7 @@
          class="bg-neutral-900 border-neutral-700 border-2 text-neutral-700 hover:bg-neutral-900 hover:border-emerald-600 hover:text-emerald-600"
       />
    </Carousel.Root>
-   <div class="w-[90%] inline-flex gap-2 mb-12 mx-auto justify-end">
+   <div class="w-[90%] inline-flex gap-2 mt-2 mx-auto justify-end">
       <a
          href="/form"
          class="flex items-center rounded-md w-32 h-10 bg-neutral-800 border-emerald-600 border-2 hover:bg-neutral-700/50 focus:outline-none text-xl justify-center"
@@ -98,3 +101,4 @@
       <img src="spin.svg" alt="" class="w-28" />
    </div>
 {/if}
+<Footer/>

@@ -8,7 +8,7 @@
 </script>
    
 <Pagination.Root count={count} perPage={perPage} let:pages let:range bind:page={currentPage}>
-  <div class="my-8 flex items-center justify-center">
+  <div class="my-4 flex items-center justify-center">
     <Pagination.PrevButton
       class="mr-[25px] inline-flex size-10 items-center justify-center rounded-md hover:bg-neutral-800 active:scale-98 disabled:cursor-not-allowed disabled:text-muted-foreground hover:disabled:bg-transparent"
     >
@@ -21,7 +21,7 @@
         {:else}
           <Pagination.Page
             {page}
-            class="inline-flex size-10 items-center justify-center rounded-md hover:bg-neutral-800 active:scale-98 disabled:cursor-not-allowed disabled:opacity-50 hover:disabled:bg-transparent data-[selected]:bg-neutral-800 data-[selected]:text-background"
+            class="inline-flex size-10 items-center justify-center rounded-md hover:bg-neutral-800 active:scale-98 disabled:cursor-not-allowed disabled:opacity-50 hover:disabled:bg-transparent data-[selected]:bg-neutral-800"
           >
             {page.value}
           </Pagination.Page>

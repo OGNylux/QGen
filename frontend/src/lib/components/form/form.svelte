@@ -10,7 +10,7 @@
     export let quest: QuestItem;
 </script>
 
-<div class="flex flex-col w-full gap-2">
+<div class="flex flex-col w-full h-full gap-2">
     <div class="flex ml-28 group">
         <h1 class="text-2xl font-bold">
             {$QuestStore.npc.namespace}:{$QuestStore.npc.identifier}

@@ -107,9 +107,6 @@ export async function postQuestDB() {
             data
 		})
 	})
-	
-	const result = await res.text()
-    console.log(result)
 }
 
 export async function putQuestDB(id: string) {
@@ -122,9 +119,6 @@ export async function putQuestDB(id: string) {
             data
 		})
 	})
-	
-	const result = await res.text()
-    console.log(result)
 }
 
 export async function deleteQuestDB(id: string) {

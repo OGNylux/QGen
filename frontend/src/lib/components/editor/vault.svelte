@@ -14,6 +14,7 @@
 
   let paginatedData: QuestLine[];
 
+  //these functions split the data into pages
   onMount(async () => {
     data = await getQuestsDB().then((res) => {
       return sortDatesByNewest(res);

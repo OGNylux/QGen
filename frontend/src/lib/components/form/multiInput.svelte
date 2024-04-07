@@ -5,6 +5,7 @@
     export let quest : QuestItem;
     export let mode : string;
 
+    //adds a new dialogue to the array
     function newDialogue() {
         if(mode === "condition") {quest.tagConditions.push(""); quest.tagConditions = [...quest.tagConditions]}
         else {quest.tagRewards.push(""); quest.tagRewards = [...quest.tagRewards]}

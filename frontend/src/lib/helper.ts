@@ -86,16 +86,16 @@ export async function postQuestToGenerator() {
 	})
 	
 	const tmp : string = await response.json();
-    const test: string[] = JSON.parse(JSON.stringify(tmp))
-    return test
+    const data: string[] = JSON.parse(JSON.stringify(tmp))
+    return data
 }
 
 export async function getQuestsDB() {
     const response = await fetch('http://localhost:5000/db/questlines')
 	
 	const tmp : string = await response.json();
-    const test: QuestLine[] = JSON.parse(JSON.stringify(tmp))
-    return test
+    const data: QuestLine[] = JSON.parse(JSON.stringify(tmp))
+    return data
 }
 
 export async function postQuestDB() {
@@ -127,6 +127,6 @@ export async function deleteQuestDB(id: string) {
 	})
 	
 	const tmp : string = await response.json();
-    const test: QuestLine[] = JSON.parse(JSON.stringify(tmp))
-    return test
+    const data: QuestLine[] = JSON.parse(JSON.stringify(tmp))
+    return data
 }

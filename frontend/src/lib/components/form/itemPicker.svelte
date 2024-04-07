@@ -6,12 +6,16 @@
 
     export let item: MinecraftItem
    
+    //add more items here
     const items = [
-      { value: "minecraft:apple", data: 0, label: "Apple" }
+      { value: "minecraft:apple", data: 0, label: "Apple" },
+      { value: "minecraft:beef", data: 0, label: "Raw Beef" },
+      { value: "minecraft:diamond", data: 0, label: "Diamond" }
     ];
    
     let inputValue = "" || item.id;
    
+    //autocomplete for the items
     $: filteredItems = inputValue
       ? items.filter((item) => item.value.includes(inputValue.toLowerCase()))
       : items;

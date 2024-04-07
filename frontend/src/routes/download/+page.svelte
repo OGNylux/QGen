@@ -14,8 +14,8 @@
    import { QuestStore } from "$lib/store";
    import { goto } from "$app/navigation";
    import { onMount } from "svelte";
-    import NavBar from "$lib/components/navBar.svelte";
-    import Footer from "$lib/components/footer.svelte";
+   import NavBar from "$lib/components/navBar.svelte";
+   import Footer from "$lib/components/footer.svelte";
 
    hljs.registerLanguage("json", json);
    hljs.registerLanguage("javascript", javascript);
